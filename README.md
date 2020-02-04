@@ -64,7 +64,7 @@ Each of the VS2019 projects / EDK2 components can be built in:
 3. the EDK2 MinnowBoard Build (Vlv2TbltDevicePkg)
 
 ### Tracing
- [`CDEMOFINE`](../CdePkg/Include/CDE.h#L56) (**MO**dule **FI**le Li**NE**)was created to provide
+ [`CDEMOFINE`](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdePkg/Include/CDE.h#L56) (**MO**dule **FI**le Li**NE**)was created to provide
  detailed information about origin and location of an event in the trace message, without additional costs
  in maintaining the sourcecode. For that reason [`CDEMOFINE`](../CdePkg/Include/CDE.h#L56) automatically emits drivername, filename, functionname, line of sourcecode and the message type 
  (warning, error, info  etc.) and includes a condition to enable or suppress the emission of the message.
@@ -84,7 +84,7 @@ Each of the VS2019 projects / EDK2 components can be built in:
    ![pci1](https://raw.githubusercontent.com/KilianKegel/pictures/master/Untitled6.png)
 6. Get the new project buildable in all target configurations
 7. Adjust the .DSC and .FDF files to involve the new driver into EDK2 build<br>
-   [EmulatorPkg.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/EmulatorPkg.dsc#L267)<br>
+   [EmulatorPkg.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeEmuPkg/EmulatorPkg.dsc#L267)<br>
    [EmulatorPkg.dsc](../CdeEmuPkg/EmulatorPkg.dsc#L305)<br>
    [EmulatorPkg.fdf](../CdeEmuPkg/EmulatorPkg.fdf#L118)<br>
    [EmulatorPkg.fdf](../CdeEmuPkg/EmulatorPkg.fdf#L146)<br>
