@@ -12,9 +12,9 @@ C Development Environment Validation Package for EDK2
 
 ## Introduction
 **CdeValidationPkg** is the environment for unit tests  of each single ANSI C library function
-implemented and provided for other POST drivers in the [**CdePkg**](./README.md#cdepkg)
+implemented and provided for other POST drivers in the [**CdePkg**](https://github.com/KilianKegel/CdePkg/blob/master/README.md#cdepkg)
 
-The [list of completeness](../implemented.md#validation-status) is updated
+The [list of completeness](https://github.com/KilianKegel/CdePkg/blob/master/implemented.md#validation-status) is updated
 by the results of those unit tests.
 
 Furthermore the concept of passing the `EFI_PEI_FILE_HANDLE*` and `EFI_PEI_SERVICES**` parameter to PEI
@@ -27,7 +27,7 @@ when running in UEFI POST or UEFI Shell as if running on Windows NT linked again
 
 **It is considered the only effective way to reach the ANSI C compatibility and strive for a *faultless implemenation*
 within a reasonable amount of time, because by far most parts of each single function test can be run through, debugged and tested natively on the (Windows) development machine. Only final tests need to be run on the UEFI Shell target.**
-This proceeding can be reached only by the [OSIF](../README.md#interface-architecture) (Operating System Interface) architecture of the library.
+This proceeding can be reached only by the [OSIF](https://github.com/KilianKegel/CdePkg/blob/master/README.md#interface-architecture) (Operating System Interface) architecture of the library.
 
 NOTE: **Torito C Library** and CdePkg's **CdeLib** have the same sourcecode base. **Torito C Library**
 provides CRT0 for Windows NT and CRT0 for UEFI Shell. In contrast **CdeLib**  provides CRT0 for DXE and PEI
