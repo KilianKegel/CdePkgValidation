@@ -43,7 +43,7 @@ The tactical procedure for that intent is:
     
     out of the same source code.
     
-2.  issue test status messages utilizing a commonly used trace interface [`CDEMOFINE`](../CdePkg/Include/CDE.h#L56) to 
+2.  issue test status messages utilizing a commonly used trace interface [`CDEMOFINE`](https://github.com/KilianKegel/CdePkg/blob/master/Include/CDE.h#L56) to 
     `stdout` (WinNT and UEFI SHELL) or to the StatusCode interface / COM1 at 115200,n,8,1 baud.
     
 3.  
@@ -64,9 +64,9 @@ Each of the VS2019 projects / EDK2 components can be built in:
 3. the EDK2 MinnowBoard Build (Vlv2TbltDevicePkg)
 
 ### Tracing
- [`CDEMOFINE`](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdePkg/Include/CDE.h#L56) (**MO**dule **FI**le Li**NE**)was created to provide
+ [`CDEMOFINE`](https://github.com/KilianKegel/CdePkg/blob/master/Include/CDE.h#L56) (**MO**dule **FI**le Li**NE**)was created to provide
  detailed information about origin and location of an event in the trace message, without additional costs
- in maintaining the sourcecode. For that reason [`CDEMOFINE`](../CdePkg/Include/CDE.h#L56) automatically emits drivername, filename, functionname, line of sourcecode and the message type 
+ in maintaining the sourcecode. For that reason [`CDEMOFINE`](https://github.com/KilianKegel/CdePkg/blob/master/Include/CDE.h#L56) automatically emits drivername, filename, functionname, line of sourcecode and the message type 
  (warning, error, info  etc.) and includes a condition to enable or suppress the emission of the message.
 
 ## Howto
@@ -85,18 +85,18 @@ Each of the VS2019 projects / EDK2 components can be built in:
 6. Get the new project buildable in all target configurations
 7. Adjust the .DSC and .FDF files to involve the new driver into EDK2 build<br>
    [EmulatorPkg.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeEmuPkg/EmulatorPkg.dsc#L267)<br>
-   [EmulatorPkg.dsc](../CdeEmuPkg/EmulatorPkg.dsc#L305)<br>
-   [EmulatorPkg.fdf](../CdeEmuPkg/EmulatorPkg.fdf#L118)<br>
-   [EmulatorPkg.fdf](../CdeEmuPkg/EmulatorPkg.fdf#L146)<br>
+   [EmulatorPkg.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeEmuPkg/EmulatorPkg.dsc#L305)<br>
+   [EmulatorPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeEmuPkg/EmulatorPkg.fdf#L118)<br>
+   [EmulatorPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeEmuPkg/EmulatorPkg.fdf#L146)<br>
 
-   [PlatformPkgX64.dsc](../CdeMnwPkg/PlatformPkgX64.dsc#L745)<br>
-   [PlatformPkgX64.dsc](../CdeMnwPkg/PlatformPkgX64.dsc#L889)<br>
-   [PlatformPkg.fdf](../CdeMnwPkg/PlatformPkg.fdf#L337)<br>
-   [PlatformPkg.fdf](../CdeMnwPkg/PlatformPkg.fdf#L414)<br>
-8. Add the FILE_GUID / commandline pair to [CdeLoadOptions.h](../CdePkg/Include/CdeLoadOptions.h)
+   [PlatformPkgX64.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeMnwPkg/PlatformPkgX64.dsc#L745)<br>
+   [PlatformPkgX64.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeMnwPkg/PlatformPkgX64.dsc#L889)<br>
+   [PlatformPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeMnwPkg/PlatformPkg.fdf#L337)<br>
+   [PlatformPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeMnwPkg/PlatformPkg.fdf#L414)<br>
+8. Add the FILE_GUID / commandline pair to [CdeLoadOptions.h](https://github.com/KilianKegel/CdePkg/blob/master/Include/CdeLoadOptions.h)
 6. build the source tree:
-    * For MINNOWBOARD BUILD type:<br>`build -a IA32 -a X64 -n 5 -t VS2015x86 -b DEBUG -p Vlv2TbltDevicePkg\PlatformPkgX64.dsc`
-    * For  EMULATION  BUILD type:<br>`build -p EmulatorPkg\EmulatorPkg.dsc -t VS2015x86 -a IA32`
+    * For MINNOWBOARD BUILD type:<br>**`build -a IA32 -a X64 -n 5 -t VS2015x86 -b DEBUG -p Vlv2TbltDevicePkg\PlatformPkgX64.dsc`**
+    * For  EMULATION  BUILD type:<br>**`build -p EmulatorPkg\EmulatorPkg.dsc -t VS2015x86 -a IA32`**
 7. Emulation Build run/debug
     * run: `runemu.bat`
     * debug: `dbgemu.bat`<br>
