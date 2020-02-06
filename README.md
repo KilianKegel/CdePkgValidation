@@ -70,6 +70,7 @@ Each of the VS2019 projects / EDK2 components can be built in:
  (warning, error, info  etc.) and includes a condition to enable or suppress the emission of the message.
 
 ## Howto
+0. **CdeValidationPkg** is a submodule of the [**EDK2020-MinnowBoard**](https://github.com/KilianKegel/EDK2020-MinnowBoard.git) project.<br> https://github.com/KilianKegel/EDK2020-MinnowBoard#howto-installbuildedit
 1. Start the VS2019 solution **CdeValidationPkg.sln**
 2. Notice that each project can be built in 5 different target configurations 
 3. Notice that some external EDK configuration files are pulled into the solution that needs to be adjusted
