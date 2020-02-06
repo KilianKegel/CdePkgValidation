@@ -1,2 +1,49 @@
 .vs
+ASSERT_H/asserthfunctions/UEFI PEI(CdeLib)
+ASSERT_H/asserthfunctions/UEFI SHELL(Torito C Library)
+ASSERT_H/asserthfunctions/Win32
+ASSERT_H/asserthfunctions/x64
+CTYPE_H/ctypehfunctions/UEFI PEI(CdeLib)
+CTYPE_H/ctypehfunctions/Win32
+CTYPE_H/ctypehfunctions/x64
+HOSTED_ENV/argcv/UEFI PEI(CdeLib)
+HOSTED_ENV/argcv/Win32
+HOSTED_ENV/argcv/x64
+LOCALE_H/localehfunctions/UEFI PEI(CdeLib)
+LOCALE_H/localehfunctions/UEFI SHELL(Torito C Library)
+LOCALE_H/localehfunctions/Win32
+LOCALE_H/localehfunctions/x64
+STDIO_H/stdiohfunctions/UEFI PEI(CdeLib)
+STDIO_H/stdiohfunctions/Win32
+STDIO_H/stdiohfunctions/x64
+STDLIB_H/stdlibhfunctions/UEFI PEI(CdeLib)
+STDLIB_H/stdlibhfunctions/Win32
+STDLIB_H/stdlibhfunctions/x64
+STRING_H/stringhfunctions/UEFI PEI(CdeLib)
+STRING_H/stringhfunctions/Win32
+STRING_H/stringhfunctions/x64
+SYSTEM_IF/systeminterfaceDXE/Win32
+SYSTEM_IF/systeminterfaceDXE/x64
+SYSTEM_IF/systeminterfacePEI/UEFI PEI(CdeLib)
+SYSTEM_IF/systeminterfacePEI/x64
+TIME_H/clock/UEFI PEI(CdeLib)
+TIME_H/clock/Win32
+TIME_H/clock/x64
+TIME_H/timehfunctions/UEFI PEI(CdeLib)
+TIME_H/timehfunctions/Win32
+TIME_H/timehfunctions/x64
+WCHAR_H/wcharhfunctions/UEFI PEI(CdeLib)
+WCHAR_H/wcharhfunctions/Win32
+WCHAR_H/wcharhfunctions/x64
+WCTYPE_H/wctypehfunctions/UEFI PEI(CdeLib)
+WCTYPE_H/wctypehfunctions/Win32
+WCTYPE_H/wctypehfunctions/x64
+_CdeMofineLibrary/Win32
+_CdeMofineLibrary/x64
+build
+library
+template/UEFI PEI(CdeLib)
+template/Win32
+template/x64
+
 
