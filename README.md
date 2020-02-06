@@ -96,10 +96,9 @@ Each of the VS2019 projects / EDK2 components can be built in:
    [PlatformPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeMnwPkg/PlatformPkg.fdf#L414)<br>
 8. Add the FILE_GUID / commandline pair to [CdeLoadOptions.h](https://github.com/KilianKegel/CdePkg/blob/master/Include/CdeLoadOptions.h)
 6. build the source tree:
-    * For MINNOWBOARD BUILD type:<br>**`build -a IA32 -a X64 -n 5 -t VS2015x86 -b DEBUG -p Vlv2TbltDevicePkg\PlatformPkgX64.dsc`**
-    * For  EMULATION  BUILD type:<br>**`build -p EmulatorPkg\EmulatorPkg.dsc -t VS2015x86 -a IA32`**
+    * For MINNOWBOARD BUILD type:<br>**`bldEMU.BAT`**
+    * For  EMULATION  BUILD type:<br>**`bldMNW.BAT DEBUG/RELEASE`**
 7. Emulation Build run/debug
-    * run: `runemu.bat`
     * debug: `dbgemu.bat`<br>
       NOTE: To use `__debugbreak()` the debug engine (VS2019) must be connected to the process *before*
             the breakpoint is reached.
