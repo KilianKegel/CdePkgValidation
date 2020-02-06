@@ -43,7 +43,7 @@ The tactical procedure for that intent is:
     
     out of the same source code.
     
-2.  issue test status messages utilizing a commonly used trace interface [`CDEMOFINE`](https://github.com/KilianKegel/CdePkg/blob/master/Include/CDE.h#L56) to 
+2.  issue test status messages utilizing a commonly used trace interface [`CDEMOFINE`](https://github.com/KilianKegel/CdePkg/blob/master/Include/CDE.h#L51) to 
     `stdout` (WinNT and UEFI SHELL) or to the StatusCode interface / COM1 at 115200,n,8,1 baud.
     
 3.  
@@ -64,9 +64,9 @@ Each of the VS2019 projects / EDK2 components can be built in:
 3. the EDK2 MinnowBoard Build (Vlv2TbltDevicePkg)
 
 ### Tracing
- [`CDEMOFINE`](https://github.com/KilianKegel/CdePkg/blob/master/Include/CDE.h#L56) (**MO**dule **FI**le Li**NE**)was created to provide
+ [`CDEMOFINE`](https://github.com/KilianKegel/CdePkg/blob/master/Include/CDE.h#L51) (**MO**dule **FI**le Li**NE**)was created to provide
  detailed information about origin and location of an event in the trace message, without additional costs
- in maintaining the sourcecode. For that reason [`CDEMOFINE`](https://github.com/KilianKegel/CdePkg/blob/master/Include/CDE.h#L56) automatically emits drivername, filename, functionname, line of sourcecode and the message type 
+ in maintaining the sourcecode. For that reason [`CDEMOFINE`](https://github.com/KilianKegel/CdePkg/blob/master/Include/CDE.h#L51) automatically emits drivername, filename, functionname, line of sourcecode and the message type 
  (warning, error, info  etc.) and includes a condition to enable or suppress the emission of the message.
 
 ## Howto
