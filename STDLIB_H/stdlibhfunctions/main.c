@@ -489,11 +489,15 @@ int main(int argc, char** argv) {
 
         }
         CDEMOFINE((MFNINF(1) "Dumping 64 bytes of memory filled with pattern\n"));
-        for (i = 0; i < ELC(msize); i++)
+        for (i = 0; i < ELC(msize); i++) {
+            if (NULL != mptr[i])
             UniDump(hexparms, 64, (unsigned long long)mptr[i], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
+        }
         
         CDEMOFINE((MFNINF(1) "Shrink the memory by 2 with realloc()\n"));
         for (i = 0; i < ELC(msize); i++) {
+            if (NULL == mptr[i])
+                continue;
             mptr[i] = realloc(mptr[i] , msize[i] / 2);
             CDEMOFINE((MFNINF(mptr[i] != NULL) "%5d succesfully reallocated at %p\n", msize[i] / 2, mptr[i]));
             CDEMOFINE((MFNERR(mptr[i] == NULL) "reallocating %d bytes failed\n", msize[i] / 2));
