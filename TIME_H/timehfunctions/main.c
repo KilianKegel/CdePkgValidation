@@ -114,8 +114,8 @@ int main(int argc, char** argv) {
     CDEMOFINE((MFNINF(1) "5. by strftime()        : %s", &strftimebuf[0]));
 
     t1 = time(NULL);
-    pszIDayCTime = ctime(&t1);
-    CDEMOFINE((MFNINF(1) "Reported today by time(): %s", pszIDayCTime));
+    //TODO 20200222 crash in PreMem execution: pszIDayCTime = ctime(&t1);
+    //TODO 20200222 crash in PreMem execution CDEMOFINE((MFNINF(1) "Reported today by time(): %s", pszIDayCTime));
 
     memset(&time1, 0, sizeof(time1));
     t = mktime(&time1);
