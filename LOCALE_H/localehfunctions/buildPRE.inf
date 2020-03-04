@@ -4,9 +4,9 @@
 #  
 [Defines]
   INF_VERSION                    = 1.26
-  BASE_NAME                      = wcharhfunctionsPei
-  MODULE_UNI_FILE                = wcharhfunctionsPei.uni
-  FILE_GUID                      = CDE000FF-44D7-4E9C-95E0-A2451E8F7203
+  BASE_NAME                      = localehfunctionsPei
+  MODULE_UNI_FILE                = localehfunctionsPei.uni
+  FILE_GUID                      = CDE000FF-4A99-4854-81FC-4D835574B821
   #NOTE: CdeDrivers FILE_GUID always start with CDE000FF to ease finding them in the debug traces and in the FV directory
   MODULE_TYPE                    = PEIM
   VERSION_STRING                 = 1.0
@@ -37,8 +37,8 @@
 [Pcd]
 
 [Depex]
-    gCdePeiProtocolGuid AND
-    gEfiPeiMemoryDiscoveredPpiGuid
+    gCdePeiProtocolGuid
+
 [UserExtensions.TianoCore."ExtraFiles"]
 
 [Pcd]

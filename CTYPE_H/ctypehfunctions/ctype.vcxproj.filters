@@ -7,6 +7,7 @@
   <ItemGroup>
     <None Include="buildDXE.inf" />
     <None Include="buildPEI.inf" />
+    <None Include="buildPRE.inf" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">

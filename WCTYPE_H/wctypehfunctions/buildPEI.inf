@@ -31,8 +31,8 @@
 [Pcd]
 
 [Depex]
-    gCdePeiProtocolGuid
-
+    gCdePeiProtocolGuid AND
+    gEfiPeiMemoryDiscoveredPpiGuid
 [Pcd]
 	gCdePkgTokenSpaceGuid.CdeDefaultCommandLine		## CONSUMES
 

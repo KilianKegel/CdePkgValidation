@@ -4,9 +4,9 @@
 #  
 [Defines]
   INF_VERSION                    = 1.26
-  BASE_NAME                      = wcharhfunctionsPei
-  MODULE_UNI_FILE                = wcharhfunctionsPei.uni
-  FILE_GUID                      = CDE000FF-44D7-4E9C-95E0-A2451E8F7203
+  BASE_NAME                      = stdlibhfunctionsPRE
+  MODULE_UNI_FILE                = stdlibhfunctionsPRE.uni
+  FILE_GUID                      = CDE000FF-FABB-436D-B4A3-18CC6CA7C747
   #NOTE: CdeDrivers FILE_GUID always start with CDE000FF to ease finding them in the debug traces and in the FV directory
   MODULE_TYPE                    = PEIM
   VERSION_STRING                 = 1.0
@@ -37,8 +37,8 @@
 [Pcd]
 
 [Depex]
-    gCdePeiProtocolGuid AND
-    gEfiPeiMemoryDiscoveredPpiGuid
+    gCdePeiProtocolGuid
+
 [UserExtensions.TianoCore."ExtraFiles"]
 
 [Pcd]
@@ -47,5 +47,5 @@
 [BuildOptions] 
 #to ENABLE  CDEMOFINE MOdule FIle liNE traces: /DNMOFINE 
 #to DISABLE CDEMOFINE MOdule FIle liNE traces: /DNMOFINE 
-   MSFT:*_*_IA32_CC_FLAGS   = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PEI(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-32\""
-   MSFT:*_*_X64_CC_FLAGS    = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PEI(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-64\""
+   MSFT:*_*_IA32_CC_FLAGS   = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PRE(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-32\""
+   MSFT:*_*_X64_CC_FLAGS    = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PRE(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-64\""

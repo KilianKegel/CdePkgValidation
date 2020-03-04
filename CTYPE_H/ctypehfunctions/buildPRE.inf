@@ -1,7 +1,7 @@
 [Defines]
   INF_VERSION                    = 1.26
-  BASE_NAME                      = ctypehfunctionsPei
-  FILE_GUID                      = CDE000FF-38C6-4B8D-A1E3-B59A3FC2361D
+  BASE_NAME                      = ctypehfunctionsPRE
+  FILE_GUID                      = CDE000FF-38C6-4B8D-A1E3-B59A3FC2361E
   MODULE_TYPE                    = PEIM
   VERSION_STRING                 = 1.0
   ENTRY_POINT                    = _MainEntryPointPei
@@ -31,8 +31,7 @@
 [Pcd]
 
 [Depex]
-    gCdePeiProtocolGuid AND
-    gEfiPeiMemoryDiscoveredPpiGuid
+    gCdePeiProtocolGuid
 
 [Pcd]
 	gCdePkgTokenSpaceGuid.CdeDefaultCommandLine		## CONSUMES
@@ -40,5 +39,5 @@
 [BuildOptions] 
 #to ENABLE  CDEMOFINE MOdule FIle liNE traces: /DNMOFINE 
 #to DISABLE CDEMOFINE MOdule FIle liNE traces: /DNMOFINE 
-   MSFT:*_*_IA32_CC_FLAGS   = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PEI(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-32\""
-   MSFT:*_*_X64_CC_FLAGS    = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PEI(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-64\""
+   MSFT:*_*_IA32_CC_FLAGS   = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PRE(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-32\""
+   MSFT:*_*_X64_CC_FLAGS    = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PRE(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-64\""

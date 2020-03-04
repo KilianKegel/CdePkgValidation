@@ -236,7 +236,7 @@
       <ExceptionHandling>false</ExceptionHandling>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine32$(TargetExt)</OutputFile>

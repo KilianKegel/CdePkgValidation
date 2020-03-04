@@ -80,6 +80,7 @@ int main(int argc, char** argv) {
     CDEMOFINE((MFNINF(1) "##################################################################\n"));
     CDEMOFINE((MFNINF(1) "########################## Test clock() in %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
     CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    //todo exit(0);
     if (1)
     {
         EFI_STATUS Status = 0LL;
@@ -88,10 +89,12 @@ int main(int argc, char** argv) {
 
         static EFI_GUID gCdePeiTmpTest0Guid = CDE_PEI_TMPTEST0_GUID;
         static EFI_PEI_PPI_DESCRIPTOR CdeLoadOptionsPpiList = {/*Flags*/(EFI_PEI_PPI_DESCRIPTOR_PPI | EFI_PEI_PPI_DESCRIPTOR_TERMINATE_LIST),/**Guid*/&gCdePeiTmpTest0Guid, /*Ppi*/0 };
-
-        Status = (*PeiServices)->InstallPpi (PeiServices, &CdeLoadOptionsPpiList);
-
-        CDEMOFINE((MFNBAR(1) "====================> %s %llX\n", strefierror(Status), Status));
+        
+        if (0 == strcmp("EDK2 UEFI PRE(CdeLib)", CDE_CONFIGURATION_STRING)) {
+            Status = (*PeiServices)->InstallPpi(PeiServices, &CdeLoadOptionsPpiList);
+            Status &= 0xFFFFFFFFULL;
+            CDEMOFINE((MFNBAR(1) "====================> %s %llX\n", strefierror(Status), Status));
+        }
     }
 
     for (i = 0; i < argc; i++) {

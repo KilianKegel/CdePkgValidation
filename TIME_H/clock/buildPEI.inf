@@ -32,7 +32,8 @@
 [Pcd]
 
 [Depex]
-    gCdePeiProtocolGuid
+    gCdePeiProtocolGuid AND
+    gEfiPeiMemoryDiscoveredPpiGuid
 
 [UserExtensions.TianoCore."ExtraFiles"]
 

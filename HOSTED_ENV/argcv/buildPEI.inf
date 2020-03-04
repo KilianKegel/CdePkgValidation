@@ -5,7 +5,7 @@
 [Defines]
   INF_VERSION                    = 1.26
   BASE_NAME                      = argcvPei
-  FILE_GUID                      = CDE000FF-B3EB-44D3-B45C-A4E88E43A237
+  FILE_GUID                      = CDE000FF-604C-48D1-B7F2-74BF3999E10E
   MODULE_TYPE                    = PEIM
   VERSION_STRING                 = 1.0
   ENTRY_POINT                    = _MainEntryPointPei
@@ -35,7 +35,8 @@
 [Pcd]
 
 [Depex]
-    gCdePeiProtocolGuid
+    gCdePeiProtocolGuid AND
+    gEfiPeiMemoryDiscoveredPpiGuid
 
 [Pcd]
 	gCdePkgTokenSpaceGuid.CdeDefaultCommandLine		## CONSUMES

@@ -25,5 +25,6 @@
   <ItemGroup>
     <None Include="buildPEI.inf" />
     <None Include="buildDXE.inf" />
+    <None Include="buildPRE.inf" />
   </ItemGroup>
 </Project>
