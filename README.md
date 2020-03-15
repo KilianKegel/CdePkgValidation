@@ -109,6 +109,11 @@ Each of the VS2019 projects / EDK2 components can be built in:
   mode only
 
 ## Revision history
+### 20200315
+* implement command line support based on NVRAM variables for the MinnowBoard
+* adjust all validation drivers to skip test if no appropriate command line is available
+* refer to **CdePkg** readme.md for more information
+
 ### 20200202
 * move from [tianocore](https://github.com/tianocore/edk2-staging/tree/CdePkg) to my private account 
 

@@ -350,6 +350,9 @@ int main(int argc, char** argv) {
     CDEMOFINE((MFNINF(1) "##################################################################\n"));
     CDEMOFINE((MFNINF(1) "########################## CdePkg driver stdiohfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
     CDEMOFINE((MFNINF(1) "##################################################################\n"));
+
+    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+
     CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int remove(const char* filename)\n"));
     CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int rename(const char* old, const char* new)\n"));
     CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: FILE* tmpfile(void)\n"));

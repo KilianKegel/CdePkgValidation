@@ -93,6 +93,7 @@ int main(int argc, char** argv) {
     CDEMOFINE((MFNINF(1) "##################################################################\n"));
     CDEMOFINE((MFNINF(1) "Demonstrating  TIME.H functions difftime(), mktime(), time(), asctime(), ctime(), gmtime(), localtime() and strftime()\n"));
 
+    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
     t = mktime(&time1);                  // converting "broken-down" to "calendartime"
     pszIDayAscTime = asctime(&time1);

@@ -50,6 +50,7 @@
 @subsection Parm_sec Command line parameters
 */
 #include <stdio.h>
+#include <string.h>
 #include <locale.h>
 #include <CDE.h>
 
@@ -61,7 +62,8 @@ int main(int argc, char** argv) {
     CDEMOFINE((MFNINF(1) "########################## CdePkg driver localehfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
     CDEMOFINE((MFNINF(1) "##################################################################\n"));
 	
-    
+    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+
     CDEMOFINE((MFNINF(1) "##################################################################\n"));
     CDEMOFINE((MFNINF(1) "### Demonstrating \"struct lconv* localeconv(void)\"\n"));
     CDEMOFINE((MFNINF(1) "##################################################################\n"));

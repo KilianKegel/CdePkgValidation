@@ -46,6 +46,7 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 #include <CDE.h>
 #undef NULL
 #include <uefi.h>
@@ -62,6 +63,8 @@ int main(int argc, char** argv) {
     CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
     CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## systeminterfaceDXE demo %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
     CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+
+    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
     CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "Demonstration of how to get SytemTable and ImageHandle for DXE drivers.\n"));
 

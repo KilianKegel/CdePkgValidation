@@ -46,6 +46,7 @@
 */
 
 #include <stdio.h>
+#include <string.h>
 #include <CDE.h>
 #undef NULL
 #include <PiPei.h>
@@ -64,6 +65,9 @@ int main(int argc, char** argv) {
     CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
     CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## systeminterfacePEI demo %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
     CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+
+    CDEMOFINE((MFNINF/*M-odule F-ile li-N-e FATAL (including termination)*/(1) "--> %d, %s argv[0] -> %s\n", 0 == strncmp(argv[0], "unknownCde", strlen("unknownCde")), argv[0]));
+    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
     CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "Demonstration of how to get PeiServices and FileHandle for PEI drivers.\n"));
 
