@@ -85,15 +85,15 @@ Each of the VS2019 projects / EDK2 components can be built in:
    ![pci1](https://raw.githubusercontent.com/KilianKegel/pictures/master/Untitled6.png)
 6. Get the new project buildable in all target configurations
 7. Adjust the .DSC and .FDF files to involve the new driver into EDK2 build<br>
-   [EmulatorPkg.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeEmuPkg/EmulatorPkg.dsc#L267)<br>
-   [EmulatorPkg.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeEmuPkg/EmulatorPkg.dsc#L305)<br>
-   [EmulatorPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeEmuPkg/EmulatorPkg.fdf#L118)<br>
-   [EmulatorPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeEmuPkg/EmulatorPkg.fdf#L146)<br>
+   [EmulatorPkg.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/overrides/EmulatorPkg/EmulatorPkg.dsc#L269)<br>
+   [EmulatorPkg.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/overrides/EmulatorPkg/EmulatorPkg.dsc#L316)<br>
+   [EmulatorPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/overrides/EmulatorPkg/EmulatorPkg.fdf#L118)<br>
+   [EmulatorPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/overrides/EmulatorPkg/EmulatorPkg.fdf#L155)<br>
 
-   [PlatformPkgX64.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeMnwPkg/PlatformPkgX64.dsc#L745)<br>
-   [PlatformPkgX64.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeMnwPkg/PlatformPkgX64.dsc#L889)<br>
-   [PlatformPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeMnwPkg/PlatformPkg.fdf#L337)<br>
-   [PlatformPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/CdeMnwPkg/PlatformPkg.fdf#L414)<br>
+   [PlatformPkgX64.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/overrides/edk2-platforms/PlatformPkgX64.dsc#L745)<br>
+   [PlatformPkgX64.dsc](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/overrides/edk2-platforms/PlatformPkgX64.dsc#L910)<br>
+   [PlatformPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/overrides/edk2-platforms/PlatformPkg.fdf#L337)<br>
+   [PlatformPkg.fdf](https://github.com/KilianKegel/EDK2020-MinnowBoard/blob/master/overrides/edk2-platforms/PlatformPkg.fdf#L435)<br>
 8. Add the FILE_GUID / commandline pair to [CdeLoadOptions.h](https://github.com/KilianKegel/CdePkg/blob/master/Include/CdeLoadOptions.h)
 6. build the source tree:
     * For MINNOWBOARD BUILD type:<br>**`bldEMU.BAT`**
