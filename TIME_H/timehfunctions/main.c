@@ -64,7 +64,7 @@ int main(int argc, char** argv) {
 
     //__debugbreak(); NOTE: to use breakpoints run DBGEMU.BAT
 
-    static char strftimebuf[256], * pBuf = &strftimebuf[0];
+    char strftimebuf[64];
     time_t t, t1;                       // "calendartime" - seconds since 1.1.1970 00:00:00
     char* pszIDayAscTime;
     char* pszIDayCTime;
