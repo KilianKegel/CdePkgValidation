@@ -231,7 +231,7 @@ int main(int argc, char** argv) {
     }
     if (1/*WCTRANS and TOWCTRANS function*/) {
         wint_t t, wc;
-        int c;
+        //int c;
         static char* property_table[] = { { "toupper" },{"tolower" },{ "towupper" },{ "towlower" },{ "INVALID" } };
 
         for (i = 0, t = 0; i < sizeof(property_table) / sizeof(property_table[0]); i++) {

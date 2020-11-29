@@ -203,10 +203,11 @@
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
       <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
+      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;</AdditionalLibraryDirectories>
@@ -279,10 +280,11 @@
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
       <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
+      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdeBinPkg\CdeLib\x64;</AdditionalLibraryDirectories>
@@ -355,10 +357,11 @@
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
       <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
+      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\ia32;</AdditionalLibraryDirectories>
@@ -432,10 +435,11 @@
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
       <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
+      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\ia32;</AdditionalLibraryDirectories>
@@ -509,10 +513,11 @@
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
       <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
+      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdeBinPkg\CdeLib\x64;</AdditionalLibraryDirectories>
