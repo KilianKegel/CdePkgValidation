@@ -9,7 +9,7 @@
             <td>UEFI SHELL<br>(CdeLib)</td>
         </tr>
         <tr><td><th align="center" colspan="5"> <h2>Configuration Properties </h2></th> </td></tr>
-        <tr><td>Output directory</td><td align="center" colspan="5"> $(SolutionDir)Edk2\CdeValidationPkg\build\$(Platform)\$(Configuration)</td></tr>
+        <tr><td>Output directory</td><td align="center" colspan="5"> $(SolutionDir)Edk2\CdePkgValidation\build\$(Platform)\$(Configuration)</td></tr>
         <tr><td>Target Name</td><td align="center" colspan="5"> $(ProjectName)</td></tr>
         <tr><td>Target Extention</td><td>.exe</td><td>.exe</td><td>.efi</td><td>.efi</td><td>.efi</td>
         <tr>
@@ -62,7 +62,7 @@
         <tr><td>Use Full Paths</td><td align="center" colspan="5">No</td></tr>
         <tr><td><th align="center" colspan="5"> <h2>Linker settings</h2></th> </td></tr>
         <tr><td>Output File</td><td align="center" colspan="5">$(OutDir)$(TargetName)$(TargetExt)</td></td></tr>
-       <tr><td>Additional Library Directory</td><td align="center" colspan="5">$(SolutionDir)Edk2\CdeValidationPkg\Library\;<br>$(SolutionDir)Edk2\CdePkg\CdeLib\x64\;</td></tr>
+       <tr><td>Additional Library Directory</td><td align="center" colspan="5">$(SolutionDir)Edk2\CdePkgValidation\Library\;<br>$(SolutionDir)Edk2\CdePkg\CdeLib\x64\;</td></tr>
         <tr><td>Additional Dependancies</td>
             <td>_CdeMofine.lib;<br>legacy_stdio_definitions.lib;</td>
             <td>ToritoC64R.lib;<br>_CdeMofine.lib;<br>kernel32.lib;</td>

@@ -107,56 +107,56 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI DXE(CdeLib)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <TargetName>_CdeMofine64</TargetName>
     <TargetExt>.LIB</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NT(Microsoft C Library)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <TargetName>_CdeMofine64</TargetName>
     <TargetExt>.LIB</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NT(Torito C Library)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <TargetName>_CdeMofine64</TargetName>
     <TargetExt>.LIB</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NT(Torito C Library)|Win32'">
     <TargetName>_CdeMofine32</TargetName>
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <TargetExt>.LIB</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI PEI(CdeLib)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <TargetName>_CdeMofine64</TargetName>
     <TargetExt>.LIB</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI SHELL(Torito C Library)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <TargetName>_CdeMofine64</TargetName>
     <TargetExt>.LIB</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NT(Microsoft C Library)|Win32'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <TargetName>_CdeMofine32</TargetName>
     <TargetExt>.LIB</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI DXE(CdeLib)|Win32'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <TargetName>_CdeMofine32</TargetName>
     <TargetExt>.LIB</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI PEI(CdeLib)|Win32'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <TargetName>_CdeMofine32</TargetName>
     <TargetExt>.LIB</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI SHELL(Torito C Library)|Win32'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\library\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\library\</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <TargetName>_CdeMofine32</TargetName>
     <TargetExt>.LIB</TargetExt>

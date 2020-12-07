@@ -6,14 +6,14 @@
 @file main.c
 
 @brief 
-    This is the CdeValidationPkg template driver
+    This is the CdePkgValidation template driver
 @todo
 
 @mainpage
-    This is the CdeValidationPkg template driver
+    This is the CdePkgValidation template driver
 
 @section intro_sec Introduction
-    This is the CdeValidationPkg template driver
+    This is the CdePkgValidation template driver
 
 @subsection Drv_sec Driver and Application matrix
     <table>

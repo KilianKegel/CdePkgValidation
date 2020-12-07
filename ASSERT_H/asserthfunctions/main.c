@@ -6,14 +6,14 @@
 @file main.c
 
 @brief 
-    This is the CdeValidationPkg asserthfunctions driver
+    This is the CdePkgValidation asserthfunctions driver
 @todo
 
 @mainpage
-    This is the CdeValidationPkg asserthfunctions driver
+    This is the CdePkgValidation asserthfunctions driver
 
 @section intro_sec Introduction
-    This is the CdeValidationPkg asserthfunctions driver
+    This is the CdePkgValidation asserthfunctions driver
 
 @subsection Drv_sec Driver and Application matrix
     <table>

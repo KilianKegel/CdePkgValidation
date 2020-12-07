@@ -6,14 +6,14 @@
 @file main.c
 
 @brief 
-    This is the CdeValidationPkg timehfunctions driver
+    This is the CdePkgValidation timehfunctions driver
 @todo
 
 @mainpage
-    This is the CdeValidationPkg timehfunctions driver
+    This is the CdePkgValidation timehfunctions driver
 
 @section intro_sec Introduction
-    This is the CdeValidationPkg timehfunctions driver
+    This is the CdePkgValidation timehfunctions driver
 
 @subsection Drv_sec Driver and Application matrix
     <table>

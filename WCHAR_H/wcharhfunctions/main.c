@@ -6,14 +6,14 @@
 @file main.c
 
 @brief 
-    This is the CdeValidationPkg wcharhfunctions driver
+    This is the CdePkgValidation wcharhfunctions driver
 @todo
 
 @mainpage
-    This is the CdeValidationPkg wcharhfunctions driver
+    This is the CdePkgValidation wcharhfunctions driver
 
 @section intro_sec Introduction
-    This is the CdeValidationPkg wcharhfunctions driver
+    This is the CdePkgValidation wcharhfunctions driver
 
 @subsection Drv_sec Driver and Application matrix
     <table>

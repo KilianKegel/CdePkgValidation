@@ -6,14 +6,14 @@
 @file main.c
 
 @brief 
-    This is the CdeValidationPkg stdlibhfunctions driver
+    This is the CdePkgValidation stdlibhfunctions driver
 @todo
 
 @mainpage
-    This is the CdeValidationPkg stdlibhfunctions driver
+    This is the CdePkgValidation stdlibhfunctions driver
 
 @section intro_sec Introduction
-    This is the CdeValidationPkg stdlibhfunctions driver
+    This is the CdePkgValidation stdlibhfunctions driver
 
 @subsection Drv_sec Driver and Application matrix
     <table>

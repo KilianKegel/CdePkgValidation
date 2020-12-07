@@ -6,14 +6,14 @@
 @file main.c
 
 @brief 
-    This is the CdeValidationPkg localehfunctions driver
+    This is the CdePkgValidation localehfunctions driver
 @todo
 
 @mainpage
-    This is the CdeValidationPkg localehfunctions driver
+    This is the CdePkgValidation localehfunctions driver
 
 @section intro_sec Introduction
-    This is the CdeValidationPkg localehfunctions driver
+    This is the CdePkgValidation localehfunctions driver
 
 @subsection Drv_sec Driver and Application matrix
     <table>

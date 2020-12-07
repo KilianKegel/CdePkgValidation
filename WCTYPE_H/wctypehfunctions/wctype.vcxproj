@@ -97,51 +97,51 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NT(Microsoft C Library)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NT(Microsoft C Library)|Win32'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NT(Torito C Library)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NT(Torito C Library)|Win32'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI DXE(CdeLib)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
     <TargetExt>.efi</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI DXE(CdeLib)|Win32'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
     <TargetExt>.efi</TargetExt>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI PEI(CdeLib)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
     <TargetExt>.efi</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI PEI(CdeLib)|Win32'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
     <TargetExt>.efi</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI SHELL(Torito C Library)|x64'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
     <TargetExt>.efi</TargetExt>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='UEFI SHELL(Torito C Library)|Win32'">
-    <OutDir>$(SolutionDir)CdeValidationPkg\build\$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)CdePkgValidation\build\$(Platform)\$(Configuration)\</OutDir>
     <GenerateManifest>false</GenerateManifest>
     <TargetExt>.efi</TargetExt>
   </PropertyGroup>
@@ -176,7 +176,7 @@
       <OmitFramePointers>false</OmitFramePointers>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>_CdeMofine64.lib;legacy_stdio_definitions.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -210,7 +210,7 @@
       <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>_CdeMofine32.lib;legacy_stdio_definitions.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -251,7 +251,7 @@
       <OmitFramePointers>false</OmitFramePointers>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>$(SolutionDir)CdePkg\ToritoC64R.lib;_CdeMofine64.lib;kernel32.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -286,7 +286,7 @@
       <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>ToritoC32R.lib;_CdeMofine32.lib;kernel32.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -328,7 +328,7 @@
       <OmitFramePointers>false</OmitFramePointers>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>CdeLib.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -363,7 +363,7 @@
       <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\ia32;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\ia32;</AdditionalLibraryDirectories>
       <AdditionalDependencies>CdeLib.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -406,7 +406,7 @@
       <OmitFramePointers>false</OmitFramePointers>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>CdeLib.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -441,7 +441,7 @@
       <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\ia32;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\ia32;</AdditionalLibraryDirectories>
       <AdditionalDependencies>CdeLib.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -484,7 +484,7 @@
       <OmitFramePointers>false</OmitFramePointers>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>$(SolutionDir)CdePkg\ToritoC64R.lib;_CdeMofine64.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -519,7 +519,7 @@
       <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdeValidationPkg\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
       <AdditionalDependencies>ToritoC64R.lib;_CdeMofine.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>

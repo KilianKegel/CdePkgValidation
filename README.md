@@ -1,4 +1,4 @@
-# CdeValidationPkg
+# CdePkgValidation
 C Development Environment Validation Package for EDK2. This is a SubModule for the EDK2020-MinnowBoard project only. It demonstrates and validates the Standard C Library functions available for POST drivers. 
 * [Introduction](README.md#introduction)
 * [Intention](README.md#intention)
@@ -11,7 +11,7 @@ C Development Environment Validation Package for EDK2. This is a SubModule for t
 C Development Environment Validation Package for EDK2
 
 ## Introduction
-**CdeValidationPkg** is the environment for unit tests  of each single ANSI C library function
+**CdePkgValidation** is the environment for unit tests  of each single ANSI C library function
 implemented and provided for other POST drivers in the [**CdePkg**](https://github.com/KilianKegel/CdePkg/blob/master/README.md#cdepkg)
 
 The [list of completeness](https://github.com/KilianKegel/CdePkg/blob/master/implemented.md#validation-status) is updated
@@ -70,8 +70,8 @@ Each of the VS2019 projects / EDK2 components can be built in:
  (warning, error, info  etc.) and includes a condition to enable or suppress the emission of the message.
 
 ## Howto
-0. **CdeValidationPkg** is a submodule of the [**EDK2020-MinnowBoard**](https://github.com/KilianKegel/EDK2020-MinnowBoard.git) project.<br> https://github.com/KilianKegel/EDK2020-MinnowBoard#howto-installbuildedit
-1. Start the VS2019 solution **CdeValidationPkg.sln**
+0. **CdePkgValidation** is a submodule of the [**EDK2020-MinnowBoard**](https://github.com/KilianKegel/EDK2020-MinnowBoard.git) project.<br> https://github.com/KilianKegel/EDK2020-MinnowBoard#howto-installbuildedit
+1. Start the VS2019 solution **CdePkgValidation.sln**
 2. Notice that each project can be built in 5 different target configurations 
 3. Notice that some external EDK configuration files are pulled into the solution that needs to be adjusted
    to place driver binaries into the flash image and to start drivers during POST<br>
