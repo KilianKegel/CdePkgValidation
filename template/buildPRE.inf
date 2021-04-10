@@ -4,13 +4,13 @@
 #  
 [Defines]
     INF_VERSION         = 1.26
-    BASE_NAME           = ctypehfunctionsDxe
-    FILE_GUID           = CDE000FF-A3A6-4F7A-B16C-123708FB4DCD
+    BASE_NAME           = templatePRE
+    FILE_GUID           = CDE000FF-4886-4602-914B-A35D90D1D353
     #NOTE: CdeDrivers FILE_GUID always start with CDE000FF to ease finding them in the debug traces and in the FV directory
-    MODULE_TYPE         = DXE_DRIVER
+    MODULE_TYPE         = PEIM
     VERSION_STRING      = 1.0
-    ENTRY_POINT         = _MainEntryPointDxe
-    IMAGE_ENTRY_POINT   = _ovrdCdeImageEntryPointDxe
+    ENTRY_POINT         = _MainEntryPointPei
+    IMAGE_ENTRY_POINT   = _ovrdCdeImageEntryPointPei
 
 #
 # The following information is for reference only and not required by the build tools.
@@ -28,15 +28,13 @@
 [LibraryClasses]
     CdeLib
 
-[Guids]
-
 [Protocols]
-    gEfiLoadedImageProtocolGuid                   ## SOMETIMES_CONSUMES
-
-[Pcd]
+    gEfiLoadedImageProtocolGuid     ## SOMETIMES_CONSUMES
 
 [Depex]
-    gCdeDxeProtocolGuid
+    gCdePeiProtocolGuid
+
+[UserExtensions.TianoCore."ExtraFiles"]
 
 [Pcd]
     gCdePkgTokenSpaceGuid.CdeDefaultCommandLine		## CONSUMES
@@ -44,5 +42,5 @@
 [BuildOptions] 
 #to ENABLE  CDEMOFINE MOdule FIle liNE traces: /DNMOFINE 
 #to DISABLE CDEMOFINE MOdule FIle liNE traces: /DNMOFINE 
-    MSFT:*_*_IA32_CC_FLAGS   = /GL-   /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI DXE(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-32\""
-    MSFT:*_*_X64_CC_FLAGS    = /GL-   /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI DXE(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-64\""
+    MSFT:*_*_IA32_CC_FLAGS   = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PRE(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-32\""
+    MSFT:*_*_X64_CC_FLAGS    = /D_invalid_switch_NMOFINE /D "CDE_CONFIGURATION_STRING=\"EDK2 UEFI PRE(CdeLib)\"" /D "CDE_PLATFORM_STRING=\"x86-64\""

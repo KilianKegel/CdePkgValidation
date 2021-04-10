@@ -135,7 +135,7 @@ static const char szOneSpace[] = { 0x20,'\0' };
 
     @return 0
 */
-static int PrintAscii(char* pBuffer, unsigned elmsize, unsigned cToPrint, unsigned char* pTextLineBuf) {
+static int PrintAscii(char* pBuffer, unsigned elmsize, unsigned cToPrint, char* pTextLineBuf) {
     unsigned char* pb = (unsigned char*)&pBuffer[0];
     unsigned short* pw = (unsigned short*)&pBuffer[0];
     unsigned int* pdw = (unsigned int*)&pBuffer[0];
@@ -214,7 +214,7 @@ int UniDump(UNIDUMPPARM ctrl, unsigned elmcount, unsigned long long startaddr, u
     unsigned nLineLength = ctrl.bit.nBytesPerLine ? 1 + ctrl.bit.nBytesPerLine : 16;
     unsigned nLineLengthHalf = nLineLength / 2;
     unsigned char* pBuffer = malloc(128);
-    unsigned char* pTextLineBuf = malloc(18/*max. AddressSize*/ + 128/*max. characters*/ * 4 + 5/*Dash + szTwoSpaces*/);
+             char* pTextLineBuf = malloc(18/*max. AddressSize*/ + 128/*max. characters*/ * 4 + 5/*Dash + szTwoSpaces*/);
     unsigned char* pb = (unsigned char*)&pBuffer[0];
     unsigned short* pw = (unsigned short*)&pBuffer[0];
     unsigned int* pdw = (unsigned int*)&pBuffer[0];

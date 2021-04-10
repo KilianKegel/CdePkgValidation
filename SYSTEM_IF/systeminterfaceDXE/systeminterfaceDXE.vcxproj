@@ -251,7 +251,7 @@
       <OmitFramePointers>false</OmitFramePointers>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdeBinPkg\CdeLib\x64;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$SolutionDir)CdePkg\CdeLib\toritoC64R.lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>$(SolutionDir)CdePkg\ToritoC64R.lib;_CdeMofine64.lib;kernel32.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
@@ -328,12 +328,12 @@
       <OmitFramePointers>false</OmitFramePointers>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CdeLib.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg</AdditionalLibraryDirectories>
+      <AdditionalDependencies>toritoC64R.lib</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>EFI Boot Service Driver</SubSystem>
-      <EntryPointSymbol>_MainEntryPointDxe</EntryPointSymbol>
+      <EntryPointSymbol>_osifUefiDxeCRT04NonEDK</EntryPointSymbol>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>false</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -360,15 +360,15 @@
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\ia32;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CdeLib.lib;</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg</AdditionalLibraryDirectories>
+      <AdditionalDependencies>toritoC32R.lib</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>EFI Boot Service Driver</SubSystem>
-      <EntryPointSymbol>_MainEntryPointDxe</EntryPointSymbol>
+      <EntryPointSymbol>_osifUefiDxeCRT04NonEDK</EntryPointSymbol>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>false</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -407,11 +407,11 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CdeLib.lib;</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)CdePkg\ToritoC64R.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>EFI Boot Service Driver</SubSystem>
-      <EntryPointSymbol>_MainEntryPointPei</EntryPointSymbol>
+      <EntryPointSymbol>_osifUefiPeiCRT04NonEDK</EntryPointSymbol>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>false</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -442,11 +442,11 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\ia32;</AdditionalLibraryDirectories>
-      <AdditionalDependencies>CdeLib.lib;</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)CdePkg\ToritoC32R.lib;</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>EFI Boot Service Driver</SubSystem>
-      <EntryPointSymbol>_MainEntryPointPei</EntryPointSymbol>
+      <EntryPointSymbol>_osifUefiPeiCRT04NonEDK</EntryPointSymbol>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>false</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
