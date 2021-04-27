@@ -109,6 +109,20 @@ Each of the VS2019 projects / EDK2 components can be built in:
   mode only
 
 ## Revision history
+### 20210427
+* source tree redesign
+* torito C library redesign to coexist with / replace EDK2 driver functions
+* configure CdePkg to support original tianocore DEBUG traces
+* extend Microsft intrinsic __acrt_iob_func() to support variable length I/O buffer count
+* improve EDK2 emulator support:
+  1. check privileg level before _enable() and _disable()
+  2. provide BREAKPOINT entries __cdeImageEntryPointPeiINT3(), __cdeImageEntryPointDxeINT3()
+* remove dependancy from 'LoadOptions'
+  CdePkg based drivers can start w/o LoadOptions and just get argv[0], argc == 1, if the LoadfOptions driver is not present in the system
+* add missing UEFI SHELL Emulation support
+* minor face lifts
+  1. move forward to better module naming scheme with prefix '__cde'
+
 ### 20200315
 * implement command line support based on NVRAM variables for the MinnowBoard
 * adjust all validation drivers to skip test if no appropriate command line is available
