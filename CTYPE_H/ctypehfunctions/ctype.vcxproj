@@ -147,7 +147,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NT(Microsoft C Library)|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)CdePkg\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)CdePkg\include;$(SolutionDir)edk2\MdePkg\Include;$(SolutionDir)edk2\MdePkg\Include\x64</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NT(Microsoft C Library)|Win32'">
@@ -160,20 +160,21 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_CRT_SECURE_NO_WARNINGS;CDE_DRIVER_NAME="$(TargetName)";CDE_CONFIGURATION_STRING="NT(Microsoft C Library)";CDE_PLATFORM_STRING="x86-64"</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <PrecompiledHeader />
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
-      <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <CompileAs>Default</CompileAs>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
-      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerOutput>NoListing</AssemblerOutput>
       <OmitFramePointers>false</OmitFramePointers>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
@@ -191,7 +192,7 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_CRT_SECURE_NO_WARNINGS;CDE_DRIVER_NAME="$(TargetName)";CDE_CONFIGURATION_STRING="NT(Microsoft C Library)";CDE_PLATFORM_STRING="x86-32"</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -202,12 +203,12 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <CompileAs>CompileAsC</CompileAs>
+      <CompileAs>Default</CompileAs>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
@@ -222,7 +223,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NT(Torito C Library)|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)CdePkg\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)CdePkg\include;$(SolutionDir)edk2\MdePkg\Include;$(SolutionDir)edk2\MdePkg\Include\x64</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NT(Torito C Library)|Win32'">
@@ -235,20 +236,21 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_CRT_SECURE_NO_WARNINGS;CDE_DRIVER_NAME="$(TargetName)";CDE_CONFIGURATION_STRING="NT(Torito C Library)";CDE_PLATFORM_STRING="x86-64"</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <PrecompiledHeader />
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
-      <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <CompileAs>Default</CompileAs>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
-      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerOutput>NoListing</AssemblerOutput>
       <OmitFramePointers>false</OmitFramePointers>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$SolutionDir)CdePkg\CdeLib\toritoC64R.lib</AdditionalLibraryDirectories>
@@ -267,7 +269,7 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_CRT_SECURE_NO_WARNINGS;CDE_DRIVER_NAME="$(TargetName)";CDE_CONFIGURATION_STRING="NT(Torito C Library)";CDE_PLATFORM_STRING="x86-32"</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -278,12 +280,12 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <CompileAs>CompileAsC</CompileAs>
+      <CompileAs>Default</CompileAs>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
@@ -304,7 +306,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='UEFI DXE(CdeLib)|Win32'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)CdePkg\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)CdePkg\include;$(SolutionDir)edk2\MdePkg\Include;$(SolutionDir)edk2\MdePkg\Include\ia32</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='UEFI DXE(CdeLib)|x64'">
@@ -312,20 +314,21 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_CRT_SECURE_NO_WARNINGS;CDE_DRIVER_NAME="$(TargetName)";CDE_CONFIGURATION_STRING="UEFI DXE(CdeLib)";CDE_PLATFORM_STRING="x86-64"</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <PrecompiledHeader />
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
-      <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <CompileAs>Default</CompileAs>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
-      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerOutput>NoListing</AssemblerOutput>
       <OmitFramePointers>false</OmitFramePointers>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg</AdditionalLibraryDirectories>
@@ -344,7 +347,7 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_CRT_SECURE_NO_WARNINGS;CDE_DRIVER_NAME="$(TargetName)";CDE_CONFIGURATION_STRING="UEFI DXE(CdeLib)";CDE_PLATFORM_STRING="x86-32"</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -355,12 +358,12 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <CompileAs>CompileAsC</CompileAs>
+      <CompileAs>Default</CompileAs>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996;</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg</AdditionalLibraryDirectories>
@@ -390,20 +393,21 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_CRT_SECURE_NO_WARNINGS;CDE_DRIVER_NAME="$(TargetName)";CDE_CONFIGURATION_STRING="UEFI PEI(CdeLib)";CDE_PLATFORM_STRING="x86-64"</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <PrecompiledHeader />
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
-      <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <CompileAs>Default</CompileAs>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
-      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerOutput>NoListing</AssemblerOutput>
       <OmitFramePointers>false</OmitFramePointers>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
@@ -433,12 +437,12 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <CompileAs>CompileAsC</CompileAs>
+      <CompileAs>Default</CompileAs>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\ia32;</AdditionalLibraryDirectories>
@@ -468,20 +472,21 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_CRT_SECURE_NO_WARNINGS;CDE_DRIVER_NAME="$(TargetName)";CDE_CONFIGURATION_STRING="UEFI SHELL(Torito C Library)";CDE_PLATFORM_STRING="x86-64"</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <PrecompiledHeader />
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
-      <CompileAs>CompileAsC</CompileAs>
-      <WarningLevel>Level3</WarningLevel>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <CompileAs>Default</CompileAs>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
-      <AssemblerOutput>All</AssemblerOutput>
+      <AssemblerOutput>NoListing</AssemblerOutput>
       <OmitFramePointers>false</OmitFramePointers>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
@@ -489,7 +494,7 @@
       <IgnoreAllDefaultLibraries>true</IgnoreAllDefaultLibraries>
       <GenerateMapFile>true</GenerateMapFile>
       <SubSystem>EFI Application</SubSystem>
-      <EntryPointSymbol>_MainEntryPointShell</EntryPointSymbol>
+      <EntryPointSymbol>_osifUefiShellCRT04NonEDK</EntryPointSymbol>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
       <DataExecutionPrevention>false</DataExecutionPrevention>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -500,7 +505,7 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;_CRT_SECURE_NO_WARNINGS;CDE_DRIVER_NAME="$(TargetName)";CDE_CONFIGURATION_STRING="UEFI SHELL(Torito C Library)";CDE_PLATFORM_STRING="x86-32"</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <ExceptionHandling>false</ExceptionHandling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -511,12 +516,12 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <CompileAs>CompileAsC</CompileAs>
+      <CompileAs>Default</CompileAs>
       <WarningLevel>Level4</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
       <UseFullPaths>true</UseFullPaths>
       <AssemblerOutput>All</AssemblerOutput>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)CdePkgValidation\Library\;$(SolutionDir)CdePkg\CdeLib\x64;</AdditionalLibraryDirectories>
@@ -532,6 +537,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EfiCallerBaseName.c" />
+    <ClCompile Include="EfiCallerGuid.c" />
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>

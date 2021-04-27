@@ -3,6 +3,7 @@
   <ItemGroup>
     <ClCompile Include="EfiCallerBaseName.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="EfiCallerGuid.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="buildDXE.inf" />

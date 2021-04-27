@@ -182,9 +182,11 @@
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
-      <CompileAs>CompileAsC</CompileAs>
+      <CompileAs>Default</CompileAs>
       <OmitFramePointers>false</OmitFramePointers>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level4</WarningLevel>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine64$(TargetExt)</OutputFile>
@@ -203,10 +205,10 @@
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
-      <CompileAs>CompileAsC</CompileAs>
-      <StringPooling>false</StringPooling>
+      <CompileAs>Default</CompileAs>
+      <StringPooling>true</StringPooling>
       <WarningLevel>Level4</WarningLevel>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine32$(TargetExt)</OutputFile>
@@ -215,7 +217,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NT(Microsoft C Library)|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>$(SolutionDir)CdePkg\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)CdePkg\include;$(SolutionDir)edk2\MdePkg\Include;$(SolutionDir)edk2\MdePkg\Include\x64</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
@@ -223,7 +225,12 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <OmitFramePointers>false</OmitFramePointers>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine64$(TargetExt)</OutputFile>
@@ -241,8 +248,8 @@
       <StringPooling>true</StringPooling>
       <WarningLevel>Level4</WarningLevel>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <CompileAs>CompileAsC</CompileAs>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <CompileAs>Default</CompileAs>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine32$(TargetExt)</OutputFile>
@@ -259,7 +266,12 @@
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;</PreprocessorDefinitions>
       <OmitFramePointers>false</OmitFramePointers>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <WarningLevel>Level4</WarningLevel>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine64$(TargetExt)</OutputFile>
@@ -274,11 +286,11 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <WarningLevel>Level4</WarningLevel>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <CompileAs>CompileAsC</CompileAs>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <CompileAs>Default</CompileAs>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine32$(TargetExt)</OutputFile>
@@ -295,7 +307,12 @@
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;</PreprocessorDefinitions>
       <OmitFramePointers>false</OmitFramePointers>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine64$(TargetExt)</OutputFile>
@@ -310,11 +327,11 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <WarningLevel>Level4</WarningLevel>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <CompileAs>CompileAsC</CompileAs>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <CompileAs>Default</CompileAs>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine32$(TargetExt)</OutputFile>
@@ -349,7 +366,12 @@
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;</PreprocessorDefinitions>
       <OmitFramePointers>false</OmitFramePointers>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
+      <WarningLevel>Level4</WarningLevel>
+      <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine64$(TargetExt)</OutputFile>
@@ -362,11 +384,11 @@
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>MinSpace</Optimization>
       <PreprocessorDefinitions>_NO_CRT_STDIO_INLINE;</PreprocessorDefinitions>
-      <StringPooling>false</StringPooling>
+      <StringPooling>true</StringPooling>
       <WarningLevel>Level4</WarningLevel>
       <TreatWChar_tAsBuiltInType>false</TreatWChar_tAsBuiltInType>
-      <CompileAs>CompileAsC</CompileAs>
-      <DisableSpecificWarnings>4005;4100;4101;4189;4456;4706;4996</DisableSpecificWarnings>
+      <CompileAs>Default</CompileAs>
+      <DisableSpecificWarnings>4100</DisableSpecificWarnings>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)_CdeMofine32$(TargetExt)</OutputFile>
