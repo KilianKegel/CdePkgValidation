@@ -109,6 +109,13 @@ Each of the VS2019 projects / EDK2 components can be built in:
   mode only
 
 ## Revision history
+### 20210821
+* introduce new `IMAGE_ENTRY_POINT`:
+  - `_cdeCRT0UefiPei` and respectively `_cdeCRT0UefiPeiEDK` for EDK build
+  - `_cdeCRT0UefiDxe` and respectively `_cdeCRT0UefiDxeEDK` for EDK build
+  - `_cdeCRT0UefiSmm` and respectively `_cdeCRT0UefiSmmEDK` for EDK build
+  - `_cdeCRT0UefiShell` and respectively `_cdeCRT0UefiShellEDK` for EDK build
+* but all parts exluded from current excluded from EDK2020-MinnowBoard
 ### 20210427
 * source tree redesign
 * torito C library redesign to coexist with / replace EDK2 driver functions
