@@ -60,11 +60,12 @@
     1. ctype /count 256: count of ASCII characters starting from 0 to test
 
 */
+#include <CDE.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <CDE.h>
 
 #define COUNT 0x200
 
@@ -77,11 +78,11 @@ int main(int argc, char** argv) {
     char* pBuffer = malloc(SIZE);
     int count = COUNT;                  // default 0x100
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## CdePkg driver ctypehfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## CdePkg driver ctypehfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
     //
     // get command line parameter
@@ -102,7 +103,7 @@ int main(int argc, char** argv) {
 
     pBuffer[strlen(pBuffer) - 2] = '\0';          // kill last ', '
 
-    CDEMOFINE((MFNINF(1) "%s\n", pBuffer));
+    CDETRACE((TRCINF(1) "%s\n", pBuffer));
     if (1/*ISfunctions*/) {
         static struct {
             int (*isfunc)(int);
@@ -122,9 +123,9 @@ int main(int argc, char** argv) {
         };
 
         for (i = 0; i < sizeof(isfunc) / sizeof(isfunc[0]); i++) {
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## Test %s() in %s %s\n", isfunc[i].szIsName, CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "########################## Test %s() in %s %s\n", isfunc[i].szIsName, CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
 
             for (c = 0; c < count; c++) {
 
@@ -141,10 +142,10 @@ int main(int argc, char** argv) {
                         (result & _ALPHA) ? "_ALPHA " : "",
                         (result & _HEX) ? "_HEX " : "");
 
-                    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "%s(0x%04X) -> %s\n", isfunc[i].szIsName, c, pBuffer));
+                    CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "%s(0x%04X) -> %s\n", isfunc[i].szIsName, c, pBuffer));
                 }
             }
-            CDEMOFINE/*MOduleFIleliNE*/((MFNBAR(1) "\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCBAR(1) "\n"));
 
         }
     }
@@ -159,9 +160,9 @@ int main(int argc, char** argv) {
         };
 
         for (i = 0; i < sizeof(tofunc) / sizeof(tofunc[0]); i++) {
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## Test %s() in %s %s\n", tofunc[i].szToName, CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "########################## Test %s() in %s %s\n", tofunc[i].szToName, CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
 
             for (c = 0; c < count; c++) {
 
@@ -170,10 +171,10 @@ int main(int argc, char** argv) {
                     sprintf(pBuffer, "%s(0x%04X / %c) -> 0x%04X / %c", tofunc[i].szToName, c, c, result, result);
 
 
-                    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "%s\n", pBuffer));
+                    CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "%s\n", pBuffer));
                 }
             }
-            CDEMOFINE/*MOduleFIleliNE*/((MFNBAR(1) "\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCBAR(1) "\n"));
 
         }
     }

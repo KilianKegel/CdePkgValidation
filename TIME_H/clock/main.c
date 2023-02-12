@@ -50,12 +50,12 @@
 @subsection Parm_sec Command line parameters
 */
 #pragma warning(disable:4005)
+#include <CDE.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <CDE.h>
-
 #define COUNT 20
 #define FRQ   1
 
@@ -71,11 +71,11 @@ int main(int argc, char** argv) {
     long frq = FRQ;
     char buffer[256];
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## Test clock() in %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## Test clock() in %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
     for (i = 0; i < argc; i++) {
         //
@@ -100,16 +100,16 @@ int main(int argc, char** argv) {
     buffer[strlen(buffer) - 2] = '\0';          // kill last ', '
 
 
-    CDEMOFINE((MFNINF(1) "%s\n", buffer));
+    CDETRACE((TRCINF(1) "%s\n", buffer));
 
     for (i = 0; i < count; i++) {
 
         clk = CLOCKS_PER_SEC / frq /*frequency*/ + clock();
-        CDEMOFINE((MFNBAR(1) "."));
+        CDETRACE((TRCBAR(1) "."));
         while (clk > clock())
             ;
 
     }
-    CDEMOFINE((MFNBAR(1) "\n"));
+    CDETRACE((TRCBAR(1) "\n"));
 
 }

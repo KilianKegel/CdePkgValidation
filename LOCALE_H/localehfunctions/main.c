@@ -49,24 +49,25 @@
 
 @subsection Parm_sec Command line parameters
 */
+#include <CDE.h>
+
 #include <stdio.h>
 #include <string.h>
 #include <locale.h>
-#include <CDE.h>
 
 int main(int argc, char** argv) {
 
     //__debugbreak(); NOTE: to use breakpoints run DBGEMU.BAT
 
-	CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## CdePkg driver localehfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+	CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## CdePkg driver localehfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 	
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"struct lconv* localeconv(void)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"struct lconv* localeconv(void)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int i;
         struct lconv* pLocale = NULL;
@@ -76,23 +77,23 @@ int main(int argc, char** argv) {
             if (i == 0)
                 pLocale->decimal_point = ":";
 
-            CDEMOFINE((MFNINF(1) "%p\ndecimal_point \"%s\"\nthousands_sep \"%s\" \ngrouping \"%s\" \nint_curr_symbol \"%s\" \ncurrency_symbol \"%s\" \nmon_decimal_point \"%s\" \nmon_thousands_sep \"%s\" \nmon_grouping \"%s\" \npositive_sign \"%s\" \nnegative_sign \"%s\" \n", pLocale, pLocale->decimal_point, pLocale->thousands_sep, pLocale->grouping, pLocale->int_curr_symbol, pLocale->currency_symbol, pLocale->mon_decimal_point, pLocale->mon_thousands_sep, pLocale->mon_grouping, pLocale->positive_sign, pLocale->negative_sign ));
+            CDETRACE((TRCINF(1) "%p\ndecimal_point \"%s\"\nthousands_sep \"%s\" \ngrouping \"%s\" \nint_curr_symbol \"%s\" \ncurrency_symbol \"%s\" \nmon_decimal_point \"%s\" \nmon_thousands_sep \"%s\" \nmon_grouping \"%s\" \npositive_sign \"%s\" \nnegative_sign \"%s\" \n", pLocale, pLocale->decimal_point, pLocale->thousands_sep, pLocale->grouping, pLocale->int_curr_symbol, pLocale->currency_symbol, pLocale->mon_decimal_point, pLocale->mon_thousands_sep, pLocale->mon_grouping, pLocale->positive_sign, pLocale->negative_sign ));
 
 
 
         }
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"char* setlocale(int nCat, char const* szLocale)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"char* setlocale(int nCat, char const* szLocale)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
 
         char* pszLocale = NULL;
         
         pszLocale = setlocale(LC_ALL, "C");
 
-        CDEMOFINE((MFNINF(1) "pszLocale -> \"%s\"\n",pszLocale));
+        CDETRACE((TRCINF(1) "pszLocale -> \"%s\"\n",pszLocale));
 
     }
     

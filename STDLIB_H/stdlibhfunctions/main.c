@@ -49,11 +49,12 @@
 
 @subsection Parm_sec Command line parameters
 */
+#include <CDE.h>
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <CDE.h>
 #include "..\..\includes\UniDump.h"
 
 #define ELC(x) (sizeof(x) / sizeof(x[0]))   /*element count*/
@@ -97,7 +98,7 @@ unsigned long long GetMem8(void* pAddr)
 unsigned WriteString(char* pszLineOfText)
 {
 
-    CDEMOFINE((MFNBAR(1) "%s", pszLineOfText));
+    CDETRACE((TRCBAR(1) "%s", pszLineOfText));
 
     return 0;
 };
@@ -304,21 +305,21 @@ int UniDump(UNIDUMPPARM ctrl, unsigned elmcount, unsigned long long startaddr, u
 }
 
 void atexit1(void) {
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## atexit1()\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## atexit1()\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 }
 
 void atexit2(void) {
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## atexit2()\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## atexit2()\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 }
 
 void atexit3(void) {
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## atexit3()\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## atexit3()\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 }
 
 int qsortcmpfunc (const void* a, const void* b) {
@@ -332,39 +333,39 @@ int main(int argc, char** argv) {
 
     //__debugbreak(); NOTE: to use breakpoints run DBGEMU.BAT
 
-	CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## CdePkg driver stdlibhfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+	CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## CdePkg driver stdlibhfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: double atof(const char* nptr)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int atoi(const char* nptr)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: long int atol(const char* nptr)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: double strtod(const char* nptr, char** endptr)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: long int strtol(const char* nptr, char** endptr, int base)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: unsigned long int strtoul(const char* nptr, char** endptr, int base)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int rand(void)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: void srand(unsigned int seed)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: void* calloc(size_t nmemb, size_t size)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: void free(void* ptr)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: void* malloc(size_t size)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: void* realloc(void* ptr, size_t size)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: void abort(void)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int atexit(void (*func)(void))\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: void exit(int status)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: char* getenv(const char* name)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int system(const char* string)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: void* bsearch(const void* key, const void* base, size_t nmemb, size_t size, int (*compar)(const void*, const void*))\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: void qsort(void* base, size_t nmemb, size_t size, int (*compar)(const void*, const void*))\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int abs(int j)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: long int labs(long int j)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: div_t div(int numer, int denom)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: ldiv_t ldiv(long int numer, long int denom)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: double atof(const char* nptr)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int atoi(const char* nptr)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: long int atol(const char* nptr)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: double strtod(const char* nptr, char** endptr)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: long int strtol(const char* nptr, char** endptr, int base)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: unsigned long int strtoul(const char* nptr, char** endptr, int base)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int rand(void)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: void srand(unsigned int seed)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: void* calloc(size_t nmemb, size_t size)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: void free(void* ptr)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: void* malloc(size_t size)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: void* realloc(void* ptr, size_t size)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: void abort(void)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int atexit(void (*func)(void))\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: void exit(int status)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: char* getenv(const char* name)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int system(const char* string)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: void* bsearch(const void* key, const void* base, size_t nmemb, size_t size, int (*compar)(const void*, const void*))\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: void qsort(void* base, size_t nmemb, size_t size, int (*compar)(const void*, const void*))\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int abs(int j)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: long int labs(long int j)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: div_t div(int numer, int denom)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: ldiv_t ldiv(long int numer, long int denom)\n"));
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int atoi(const char* nptr)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int atoi(const char* nptr)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
     if (1) {
         int i,n;
@@ -372,13 +373,13 @@ int main(int argc, char** argv) {
         for (i = 0; i < ELC(atoistrings); i++) {
             
             n = atoi(atoistrings[i]);
-            CDEMOFINE((MFNINF(1) "\"%s\" -> %d\n", atoistrings[i], n));
+            CDETRACE((TRCINF(1) "\"%s\" -> %d\n", atoistrings[i], n));
         }
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"long int atol(const char* nptr)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"long int atol(const char* nptr)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
     if (1) {
         long i, n;
@@ -386,14 +387,14 @@ int main(int argc, char** argv) {
         for (i = 0; i < ELC(atolstrings); i++) {
 
             n = atoi(atolstrings[i]);
-            CDEMOFINE((MFNINF(1) "\"%s\" -> %d\n", atolstrings[i], n));
+            CDETRACE((TRCINF(1) "\"%s\" -> %d\n", atolstrings[i], n));
         }
     }
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: long int strtol(const char* nptr, char** endptr, int base)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: long int strtol(const char* nptr, char** endptr, int base)\n"));
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"long int strtol(const char* nptr, char** endptr, int base)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"long int strtol(const char* nptr, char** endptr, int base)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
     if (1) {
         long i, n;
@@ -414,13 +415,13 @@ int main(int argc, char** argv) {
         for (i = 0; i < ELC(parms); i++) 
         {
             n = strtol(parms[i].nptr, parms[i].endptr == NULL ? NULL : &parms[i].endptr, parms[i].base);
-            CDEMOFINE((MFNINF(1) "\"strtol(%s, %s, %d)\" -> %d\n", parms[i].nptr, parms[i].endptr, parms[i].base, n));
+            CDETRACE((TRCINF(1) "\"strtol(%s, %s, %d)\" -> %d\n", parms[i].nptr, parms[i].endptr, parms[i].base, n));
         }
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"long int strtoul(const char* nptr, char** endptr, int base)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"long int strtoul(const char* nptr, char** endptr, int base)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
     if (1) {
         unsigned long i, n;
@@ -441,37 +442,37 @@ int main(int argc, char** argv) {
         for (i = 0; i < ELC(parms); i++)
         {
             n = strtoul(parms[i].nptr, parms[i].endptr == NULL ? NULL : &parms[i].endptr, parms[i].base);
-            CDEMOFINE((MFNINF(1) "\"strtoul(%s, %s, %d)\" -> %d\n", parms[i].nptr, parms[i].endptr, parms[i].base, n));
+            CDETRACE((TRCINF(1) "\"strtoul(%s, %s, %d)\" -> %d\n", parms[i].nptr, parms[i].endptr, parms[i].base, n));
         }
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"void srand(unsigned int seed)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: The random number generator is initialized with a fixed value 0 to produce predefined random numbers \n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"void srand(unsigned int seed)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: The random number generator is initialized with a fixed value 0 to produce predefined random numbers \n"));
     
     srand(0);
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int rand(void)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int rand(void)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int i,n;
 
         for (i = 0; i < 10; i++) {
             n = rand();
-            CDEMOFINE((MFNINF(1) "%2d: random number %04X\n",i, n));
+            CDETRACE((TRCINF(1) "%2d: random number %04X\n",i, n));
 
         }
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### MEMORY MANAGEMENT FUNCTIONS:\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"void* calloc(size_t nmemb, size_t size)\"\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"void  free(void* ptr)\"\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"void* malloc(size_t size)\"\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"void* realloc(void* ptr, size_t size)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### MEMORY MANAGEMENT FUNCTIONS:\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"void* calloc(size_t nmemb, size_t size)\"\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"void  free(void* ptr)\"\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"void* malloc(size_t size)\"\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"void* realloc(void* ptr, size_t size)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
     if (1) {
         //char* p;
@@ -481,109 +482,109 @@ int main(int argc, char** argv) {
         int mpat1[ELC(msize)] = { '1','2','3','4','5','6','7','8' };
         int mpat2[ELC(msize)] = { 'A','B','C','D','E','F','G','H' };
 
-        CDEMOFINE((MFNINF(1) "Allocating memory with malloc()\n"));
+        CDETRACE((TRCINF(1) "Allocating memory with malloc()\n"));
         for (i = 0; i < ELC(msize); i++) {
             mptr[i] = malloc(msize[i]);
-            CDEMOFINE((MFNINF(mptr[i] != NULL) "%5d succesfully allocated at %p\n", msize[i], mptr[i]));
-            CDEMOFINE((MFNERR(mptr[i] == NULL) "allocating %d bytes failed\n", msize[i]));
+            CDETRACE((TRCINF(mptr[i] != NULL) "%5zd succesfully allocated at %p\n", msize[i], mptr[i]));
+            CDETRACE((TRCERR(mptr[i] == NULL) "allocating %zd bytes failed\n", msize[i]));
             
             if (NULL != mptr[i])    // fill the memory block
                 memset(mptr[i], mpat1[i], msize[i]);
 
         }
-        CDEMOFINE((MFNINF(1) "Dumping 64 bytes of memory filled with pattern\n"));
+        CDETRACE((TRCINF(1) "Dumping 64 bytes of memory filled with pattern\n"));
         for (i = 0; i < ELC(msize); i++) {
             if (NULL != mptr[i])
             UniDump(hexparms, 64, (unsigned long long)mptr[i], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
         }
         
-        CDEMOFINE((MFNINF(1) "Shrink the memory by 2 with realloc()\n"));
+        CDETRACE((TRCINF(1) "Shrink the memory by 2 with realloc()\n"));
         for (i = 0; i < ELC(msize); i++) {
             if (NULL == mptr[i])
                 continue;
             mptr[i] = realloc(mptr[i] , msize[i] / 2);
-            CDEMOFINE((MFNINF(mptr[i] != NULL) "%5d succesfully reallocated at %p\n", msize[i] / 2, mptr[i]));
-            CDEMOFINE((MFNERR(mptr[i] == NULL) "reallocating %d bytes failed\n", msize[i] / 2));
+            CDETRACE((TRCINF(mptr[i] != NULL) "%5zd succesfully reallocated at %p\n", msize[i] / 2, mptr[i]));
+            CDETRACE((TRCERR(mptr[i] == NULL) "reallocating %zd bytes failed\n", msize[i] / 2));
 
             if (NULL != mptr[i])    // fill the memory block
                 memset(mptr[i], mpat2[i], msize[i] / 2);
 
         }
         
-        CDEMOFINE((MFNINF(1) "Dumping 64 bytes of memory filled with pattern\n"));
+        CDETRACE((TRCINF(1) "Dumping 64 bytes of memory filled with pattern\n"));
         for (i = 0; i < ELC(msize); i++)
             if(NULL != mptr[i])
                 UniDump(hexparms, 64, (unsigned long long)mptr[i], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
 
-        CDEMOFINE((MFNINF(1) "Release the memoryblocks with free()\n"));
+        CDETRACE((TRCINF(1) "Release the memoryblocks with free()\n"));
         for (i = 0; i < ELC(msize); i++) {
             if(NULL != mptr[i])
                 free(mptr[i]);
         }
 
-        CDEMOFINE((MFNINF(1) "CAllocating memory with calloc()\n"));
+        CDETRACE((TRCINF(1) "CAllocating memory with calloc()\n"));
         for (i = 0; i < ELC(msize); i++) {
             mptr[i] = calloc(msize[i],1);
-            CDEMOFINE((MFNINF(mptr[i] != NULL) "%5d succesfully allocated at %p\n", msize[i], mptr[i]));
-            CDEMOFINE((MFNERR(mptr[i] == NULL) "allocating %d bytes failed\n", msize[i]));
+            CDETRACE((TRCINF(mptr[i] != NULL) "%5zd succesfully allocated at %p\n", msize[i], mptr[i]));
+            CDETRACE((TRCERR(mptr[i] == NULL) "allocating %zd bytes failed\n", msize[i]));
         }
-        CDEMOFINE((MFNINF(1) "Dumping 64 bytes of memory filled with ZERO\n"));
+        CDETRACE((TRCINF(1) "Dumping 64 bytes of memory filled with ZERO\n"));
         for (i = 0; i < ELC(msize); i++)
             if (NULL != mptr[i])
                 UniDump(hexparms, 64, (unsigned long long)mptr[i], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
 
     }
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"void qsort(void* base, size_t nmemb, size_t size, int (*compar)(const void*, const void*))\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"void qsort(void* base, size_t nmemb, size_t size, int (*compar)(const void*, const void*))\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int n;
         int values[] = { 88, 56, 100, 2, 25 };
 
-        CDEMOFINE((MFNINF(1) "Before sorting the list is : \n"));
+        CDETRACE((TRCINF(1) "Before sorting the list is : \n"));
         for (n = 0; n < 5; n++) {
-            CDEMOFINE((MFNBAR(1) "%d ", values[n]));
+            CDETRACE((TRCBAR(1) "%d ", values[n]));
         }
-        CDEMOFINE((MFNBAR(1) "\n"));
+        CDETRACE((TRCBAR(1) "\n"));
 
         qsort(values, 5, sizeof(int), qsortcmpfunc);
 
-        CDEMOFINE((MFNINF(1) "AFTER sorting the list is : \n"));
+        CDETRACE((TRCINF(1) "AFTER sorting the list is : \n"));
         for (n = 0; n < 5; n++) {
-            CDEMOFINE((MFNBAR(1) "%d ", values[n]));
+            CDETRACE((TRCBAR(1) "%d ", values[n]));
         }
-        CDEMOFINE((MFNBAR(1) "\n"));
+        CDETRACE((TRCBAR(1) "\n"));
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int abs(int j)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int abs(int j)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int i,n;
         int numbers[] = { 1,-20,300,-4000 };
 
         for (i = 0; i < ELC(numbers); i++) {
             n = abs(numbers[i]);
-            CDEMOFINE((MFNINF(1) "abs(%d) -> %d\n", numbers[i], n));
+            CDETRACE((TRCINF(1) "abs(%d) -> %d\n", numbers[i], n));
         }
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"long abs(long j)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"long abs(long j)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         long i, n;
         long numbers[] = { 2,-30,400,-5000 };
 
         for (i = 0; i < ELC(numbers); i++) {
             n = labs(numbers[i]);
-            CDEMOFINE((MFNINF(1) "labs(%d) -> %d\n", numbers[i], n));
+            CDETRACE((TRCINF(1) "labs(%d) -> %d\n", numbers[i], n));
         }
     }
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"div_t div(int num, int denom)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"div_t div(int num, int denom)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int i;
         div_t result;
@@ -594,12 +595,12 @@ int main(int argc, char** argv) {
 
         for (i = 0; i < ELC(dendsor); i++) {
             result = div(dendsor[i].num, dendsor[i].denom);
-            CDEMOFINE((MFNINF(1) "div(%d,%2d) -> %2d rem %d\n", dendsor[i].num, dendsor[i].denom, result.quot, result.rem));
+            CDETRACE((TRCINF(1) "div(%d,%2d) -> %2d rem %d\n", dendsor[i].num, dendsor[i].denom, result.quot, result.rem));
         }
     }
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"ldiv_t ldiv(long num, long denom)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"ldiv_t ldiv(long num, long denom)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int i;
         ldiv_t result;
@@ -610,28 +611,28 @@ int main(int argc, char** argv) {
 
         for (i = 0; i < ELC(dendsor); i++) {
             result = ldiv(dendsor[i].num, dendsor[i].denom);
-            CDEMOFINE((MFNINF(1) "ldiv(%d,%2d) -> %2d rem %d\n", dendsor[i].num, dendsor[i].denom, result.quot, result.rem));
+            CDETRACE((TRCINF(1) "ldiv(%d,%2d) -> %2d rem %d\n", dendsor[i].num, dendsor[i].denom, result.quot, result.rem));
         }
     }    
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int atexit(void (*func)(void))\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int atexit(void (*func)(void))\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int i,n;
         void (*func[])(void) = { atexit1, atexit2, atexit3 };
 
         for (i = 0; i < ELC(func); i++) {
             n = atexit(func[i]);
-            CDEMOFINE((MFNINF(1) "%d -> %d\n", i, n));
+            CDETRACE((TRCINF(1) "%d -> %d\n", i, n));
         }
 
 
     }
 
     exit(3);
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"A B O R T\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"A B O R T\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     return 0;
 }

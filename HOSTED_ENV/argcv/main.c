@@ -45,9 +45,10 @@
     argcv abc "d e f g" \\"1 23
 */
 
+#include <CDE.h>
+
 #include <stdio.h>
 #include <string.h>
-#include <CDE.h>
 
 //#include <uefi.h>
 
@@ -56,13 +57,13 @@ int main(int argc, char** argv) {
 
     char cmdline[96];
     
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## ARGCV test %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+    CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
+    CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "########################## ARGCV test %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
 
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "Demonstration of command line argument parsing.\n"));
+    CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "Demonstration of command line argument parsing.\n"));
     //
     // print all command line parameter
     //
@@ -75,5 +76,5 @@ int main(int argc, char** argv) {
         argc > 3 ? argv[3] : "",    \
         argc > 4 ? argv[4] : "");
 
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "ARGC/ARGV config: %s\n",cmdline));
+    CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "ARGC/ARGV config: %s\n",cmdline));
 }

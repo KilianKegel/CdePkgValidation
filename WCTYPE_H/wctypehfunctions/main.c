@@ -65,12 +65,12 @@
 
 
 */
+#include <CDE.h>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <wctype.h>
-#include <CDE.h>
 
 #define COUNT 0x200
 
@@ -83,11 +83,11 @@ int main(int argc, char** argv) {
     char* pBuffer = malloc(SIZE);
     int count = COUNT;                  // default 0x100
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## CdePkg driver wctypehfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## CdePkg driver wctypehfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver",strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver",strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
     //
     // get command line parameter
     //
@@ -107,7 +107,7 @@ int main(int argc, char** argv) {
 
     pBuffer[strlen(pBuffer) - 2] = '\0';          // kill last ', '
 
-    CDEMOFINE((MFNINF(1) "%s\n", pBuffer));
+    CDETRACE((TRCINF(1) "%s\n", pBuffer));
     if (1/*ISfunctions*/) {
         static struct {
             int (*isfunc)(win_t);
@@ -127,9 +127,9 @@ int main(int argc, char** argv) {
         };
 
         for (i = 0; i < sizeof(isfunc) / sizeof(isfunc[0]); i++) {
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## Test %s() in %s %s\n", isfunc[i].szIsName, CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "########################## Test %s() in %s %s\n", isfunc[i].szIsName, CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
 
             for (c = 0; c < count; c++) {
 
@@ -146,10 +146,10 @@ int main(int argc, char** argv) {
                         (result & _ALPHA) ? "_ALPHA " : "",
                         (result & _HEX) ? "_HEX " : "");
 
-                    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "%s(0x%04X) -> %s\n", isfunc[i].szIsName, c, pBuffer));
+                    CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "%s(0x%04X) -> %s\n", isfunc[i].szIsName, c, pBuffer));
                 }
             }
-            CDEMOFINE/*MOduleFIleliNE*/((MFNBAR(1) "\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCBAR(1) "\n"));
 
         }
     }
@@ -164,9 +164,9 @@ int main(int argc, char** argv) {
         };
 
         for (i = 0; i < sizeof(tofunc) / sizeof(tofunc[0]); i++) {
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## Test %s() in %s %s\n", tofunc[i].szToName, CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "########################## Test %s() in %s %s\n", tofunc[i].szToName, CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
 
             for (c = 0; c < count; c++) {
 
@@ -175,10 +175,10 @@ int main(int argc, char** argv) {
                     sprintf(pBuffer, "%s(0x%04X / %c) -> 0x%04X / %c", tofunc[i].szToName, c, c, result, result);
 
 
-                    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "%s\n", pBuffer));
+                    CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "%s\n", pBuffer));
                 }
             }
-            CDEMOFINE/*MOduleFIleliNE*/((MFNBAR(1) "\n"));
+            CDETRACE/*MOduleFIleliNE*/((TRCBAR(1) "\n"));
 
         }
     }
@@ -187,26 +187,26 @@ int main(int argc, char** argv) {
         wint_t t;
         char* wctype_table[] = { "alpha","alnum","alpha","blank","cntrl","digit","graph","lower","print","punct","space","upper","xdigit","Xdigit" };
 
-        CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
-        CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## Test iswctype() and wctype() in %s %s\n",CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-        CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+        CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
+        CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "########################## Test iswctype() and wctype() in %s %s\n",CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+        CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "##################################################################\n"));
 
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0157, _ALPHA | _BLANK | _PUNCT | _DIGIT | _LOWER | _UPPER, "print"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0117, _ALPHA | _PUNCT | _DIGIT | _LOWER | _UPPER, "graph"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0107, _ALPHA | _DIGIT | _LOWER | _UPPER, "alnum"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0103, _ALPHA | _LOWER | _UPPER, "alpha"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0001, _UPPER, "upper"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0002, _LOWER, "lower"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0004, _DIGIT, "digit"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0008, _SPACE, "space"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0010, _PUNCT, "punct"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0020, _CONTROL, "cntrl"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0040, _BLANK, "blank"));
-        CDEMOFINE((MFNINF(1)"%04X %04X %s\n", 0x0080, _HEX, "xdigit"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0157, _ALPHA | _BLANK | _PUNCT | _DIGIT | _LOWER | _UPPER, "print"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0117, _ALPHA | _PUNCT | _DIGIT | _LOWER | _UPPER, "graph"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0107, _ALPHA | _DIGIT | _LOWER | _UPPER, "alnum"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0103, _ALPHA | _LOWER | _UPPER, "alpha"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0001, _UPPER, "upper"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0002, _LOWER, "lower"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0004, _DIGIT, "digit"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0008, _SPACE, "space"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0010, _PUNCT, "punct"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0020, _CONTROL, "cntrl"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0040, _BLANK, "blank"));
+        CDETRACE((TRCINF(1)"%04X %04X %s\n", 0x0080, _HEX, "xdigit"));
 
 
         for (t = 0; t < sizeof(wctype_table) / sizeof(wctype_table[0]); t++) {
-            CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## Testing \"%s\"\n", wctype_table[t]));
+            CDETRACE/*MOduleFIleliNE*/((TRCINF(1) "########################## Testing \"%s\"\n", wctype_table[t]));
             for (c = 0; c < count; c++) {
 
                 result = iswctype((wint_t)c, wctype(wctype_table[t]));
@@ -223,7 +223,7 @@ int main(int argc, char** argv) {
                         (result & _ALPHA) ? "_ALPHA " : "",
                         (result & _HEX) ? "_HEX " : "");
 
-                    CDEMOFINE((MFNINF(0 != result) /* <<< no comma >>> */ "iswctype(%04X, wctype(%s)) -> %s\n", c, wctype_table[t], pBuffer));
+                    CDETRACE((TRCINF(0 != result) /* <<< no comma >>> */ "iswctype(%04X, wctype(%s)) -> %s\n", c, wctype_table[t], pBuffer));
                 }
 
             }
@@ -238,13 +238,13 @@ int main(int argc, char** argv) {
 
             t = wctrans(property_table[i]);
 
-            CDEMOFINE((MFNINF(1) " %s -> t == %X\n", property_table[i], t));
+            CDETRACE((TRCINF(1) " %s -> t == %X\n", property_table[i], t));
 
             for (c = 0; c < count; c++) {
 
                 wc = towctrans((wint_t)c, t);
 
-                CDEMOFINE((MFNINF(wc != (wint_t)c) /* <<< no comma >>> */ "Character 0x%04X is converted to 0x%04X\n", c, wc));
+                CDETRACE((TRCINF(wc != (wint_t)c) /* <<< no comma >>> */ "Character 0x%04X is converted to 0x%04X\n", c, wc));
             }
         }
     }

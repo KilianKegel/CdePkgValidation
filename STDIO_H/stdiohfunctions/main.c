@@ -49,14 +49,14 @@
 
 @subsection Parm_sec Command line parameters
 */
+#include <CDE.h>
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdarg.h>
 #include "..\..\includes\UniDump.h"
-
-#include <CDE.h>
 
 #define ELC(x) (sizeof(x) / sizeof(x[0]))
 /*!
@@ -92,7 +92,7 @@ unsigned long long GetMem8(void* pAddr)
 unsigned WriteString(char* pszLineOfText)
 {
 
-    CDEMOFINE((MFNBAR(1) "%s", pszLineOfText));
+    CDETRACE((TRCBAR(1) "%s", pszLineOfText));
 
     return 0;
 };
@@ -213,7 +213,7 @@ int UniDump(UNIDUMPPARM ctrl, unsigned elmcount, unsigned long long startaddr, u
     unsigned u/*<unsigned index*/;
     unsigned nLineLength = ctrl.bit.nBytesPerLine ? 1 + ctrl.bit.nBytesPerLine : 16;
     unsigned nLineLengthHalf = nLineLength / 2;
-    unsigned char* pBuffer = malloc(128);
+    signed   char* pBuffer = malloc(128);
              char* pTextLineBuf = malloc(18/*max. AddressSize*/ + 128/*max. characters*/ * 4 + 5/*Dash + szTwoSpaces*/);
     unsigned char* pb = (unsigned char*)&pBuffer[0];
     unsigned short* pw = (unsigned short*)&pBuffer[0];
@@ -347,61 +347,61 @@ int main(int argc, char** argv) {
 
     //__debugbreak(); NOTE: to use breakpoints run DBGEMU.BAT
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## CdePkg driver stdiohfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## CdePkg driver stdiohfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int remove(const char* filename)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int rename(const char* old, const char* new)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: FILE* tmpfile(void)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: char* tmpnam(char* s)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fclose(FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fflush(FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: FILE* fopen(const char* filename, const char* mode)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: FILE* freopen(const char* filename, const char* mode, FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: void setbuf(FILE * stream, char* buf)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int setvbuf(FILE * stream, char* buf, int mode, size_t size)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fprintf(FILE * stream, const char* format, ...)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fscanf(FILE * stream, const char* format, ...)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int printf(const char* format, ...)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int scanf(const char* format, ...)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int snprintf(char* s, size_t n, const char* format, ...)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int sprintf(char* s, const char* format, ...)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int vscanf(const char* format, va_list arg) from C99\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int vsnprintf(char* s, size_t n, const char* format, va_list arg) from C99\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int vsscanf(const char* s, const char* format, va_list arg) from C99\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int sscanf(const char* s, const char* format, ...)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int vfprintf(FILE * stream, const char* format, va_list arg)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int vprintf(const char* format, va_list arg)\n"));
-    CDEMOFINE((MFNINF(1) "Function will     be available for PEI/DXE POST driver: int vsprintf(char* s, const char* format, va_list arg)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fgetc(FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: char* fgets(char* s, int n, FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fputc(int c, FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fputs(const char* s, FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int getc(FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int getchar(void)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: char* gets(char* s)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int putc(int c, FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int putchar(int c)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int puts(const char* s)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int ungetc(int c, FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: size_t fread(void* ptr, size_t size, size_t nmemb, FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: size_t fwrite(const void* ptr, size_t size, size_t nmemb, FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fgetpos(FILE * stream, fpos_t * pos)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fseek(FILE * stream, long int offset, int whence)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int fsetpos(FILE * stream, const fpos_t * pos)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: long int ftell(FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: void rewind(FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: void clearerr(FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int feof(FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: int ferror(FILE * stream)\n"));
-    CDEMOFINE((MFNINF(1) "Function will not be available for PEI/DXE POST driver: void perror(const char* s)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int remove(const char* filename)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int rename(const char* old, const char* new)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: FILE* tmpfile(void)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: char* tmpnam(char* s)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fclose(FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fflush(FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: FILE* fopen(const char* filename, const char* mode)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: FILE* freopen(const char* filename, const char* mode, FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: void setbuf(FILE * stream, char* buf)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int setvbuf(FILE * stream, char* buf, int mode, size_t size)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fprintf(FILE * stream, const char* format, ...)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fscanf(FILE * stream, const char* format, ...)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int printf(const char* format, ...)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int scanf(const char* format, ...)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int snprintf(char* s, size_t n, const char* format, ...)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int sprintf(char* s, const char* format, ...)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int vscanf(const char* format, va_list arg) from C99\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int vsnprintf(char* s, size_t n, const char* format, va_list arg) from C99\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int vsscanf(const char* s, const char* format, va_list arg) from C99\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int sscanf(const char* s, const char* format, ...)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int vfprintf(FILE * stream, const char* format, va_list arg)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int vprintf(const char* format, va_list arg)\n"));
+    CDETRACE((TRCINF(1) "Function will     be available for PEI/DXE POST driver: int vsprintf(char* s, const char* format, va_list arg)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fgetc(FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: char* fgets(char* s, int n, FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fputc(int c, FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fputs(const char* s, FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int getc(FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int getchar(void)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: char* gets(char* s)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int putc(int c, FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int putchar(int c)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int puts(const char* s)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int ungetc(int c, FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: size_t fread(void* ptr, size_t size, size_t nmemb, FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: size_t fwrite(const void* ptr, size_t size, size_t nmemb, FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fgetpos(FILE * stream, fpos_t * pos)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fseek(FILE * stream, long int offset, int whence)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int fsetpos(FILE * stream, const fpos_t * pos)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: long int ftell(FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: void rewind(FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: void clearerr(FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int feof(FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: int ferror(FILE * stream)\n"));
+    CDETRACE((TRCINF(1) "Function will not be available for PEI/DXE POST driver: void perror(const char* s)\n"));
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"char* tmpnam(char* s)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"char* tmpnam(char* s)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
     if (1) {
         int i;
@@ -409,25 +409,25 @@ int main(int argc, char** argv) {
 
         for (i = 1; i <= 10; i++) {
             p = tmpnam(NULL);
-            CDEMOFINE((MFNINF(1) "TMPNAM # %2d: %s\n", i, p));
+            CDETRACE((TRCINF(1) "TMPNAM # %2d: %s\n", i, p));
         }
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int printf(const char * format, ...)\"\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int sprintf(char * s ,const char * format, ...)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int printf(const char * format, ...)\"\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int sprintf(char * s ,const char * format, ...)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int n;
         printf("%s(%d): printf() -> Welcome, to the jungle... \n", __FILE__, __LINE__);
         memset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
         n = sprintf(&b[0], "sprintf() -> Welcome, to the jungle... \n");
-        CDEMOFINE((MFNINF(1) "Chars written: %d, %s\n", n, b));
+        CDETRACE((TRCINF(1) "Chars written: %d, %s\n", n, b));
         UniDump(hexparms, sizeof(b), (unsigned long long) & b[0], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
     }
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int snprintf(char* s, size_t n, const char* format, ...)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int snprintf(char* s, size_t n, const char* format, ...)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int i,n;
 
@@ -435,14 +435,14 @@ int main(int argc, char** argv) {
             memset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
             b[sizeof(b) - 1] = '\0';
             n = snprintf(b, (size_t)i, "snprintf()");
-            CDEMOFINE((MFNINF(1) "cnt = %2d, n = %2d: %s.\n", i, n, b));
+            CDETRACE((TRCINF(1) "cnt = %2d, n = %2d: %s.\n", i, n, b));
             UniDump(hexparms, sizeof(b), (unsigned long long) & b[0], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
         }
 
     }
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int vsnprintf(char* s, size_t n, const char* format, va_list ap)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int vsnprintf(char* s, size_t n, const char* format, va_list ap)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int i, n;
 
@@ -450,36 +450,36 @@ int main(int argc, char** argv) {
             memset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
             b[sizeof(b) - 1] = '\0';
             n = vsnprintfwrapper(b, (size_t)i, "vsnprintf()\n");
-            CDEMOFINE((MFNINF(1) "cnt = %2d, n = %2d: %s.\n", i, n, b));
+            CDETRACE((TRCINF(1) "cnt = %2d, n = %2d: %s.\n", i, n, b));
             UniDump(hexparms, sizeof(b), (unsigned long long) & b[0], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
         }
 
     }
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int vsprintf(char* s, const char* format, va_list arg)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int vsprintf(char* s, const char* format, va_list arg)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
 
         memset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
         b[sizeof(b) - 1] = '\0';
         vsprintfwrapper(b, "vsprintf() -> Welcome, to the jungle... \n");
-        CDEMOFINE((MFNINF(1) "%s\n", b));
+        CDETRACE((TRCINF(1) "%s\n", b));
 
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int vprintf(const char* format, va_list arg)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int vprintf(const char* format, va_list arg)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
 
         vprintfwrapper("vprintf() -> Welcome, to the jungle... \n");
 
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"sscanf(const char* s, const char* format, ...)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"sscanf(const char* s, const char* format, ...)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int no1 = -1;
         int no2 = -1;
@@ -491,14 +491,14 @@ int main(int argc, char** argv) {
 
         token = sscanf(buffer, "%d %d %d %s %s", &no1, &no2, &no3, &str1[0], &str2[0]);
 
-        CDEMOFINE((MFNINF(1) "token = %d, no1 %d, no2 %d, no3 %d, str1 %s, str2 %s\n", token, no1, no2, no3, str1, str2));
+        CDETRACE((TRCINF(1) "token = %d, no1 %d, no2 %d, no3 %d, str1 %s, str2 %s\n", token, no1, no2, no3, str1, str2));
 
 
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"vsscanf(const char* s, const char* format, va_list arg)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"vsscanf(const char* s, const char* format, va_list arg)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         int no1 = -1;
         int no2 = -1;
@@ -510,6 +510,6 @@ int main(int argc, char** argv) {
 
         token = vsscanfwrapper(buffer, "%d %d %d %s %s", &no1, &no2, &no3, &str1[0], &str2[0]);
 
-        CDEMOFINE((MFNINF(1) "token = %d, no1 %d, no2 %d, no3 %d, str1 %s, str2 %s\n", token, no1, no2, no3, str1, str2));
+        CDETRACE((TRCINF(1) "token = %d, no1 %d, no2 %d, no3 %d, str1 %s, str2 %s\n", token, no1, no2, no3, str1, str2));
     }
 }

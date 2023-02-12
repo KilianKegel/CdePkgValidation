@@ -49,8 +49,9 @@
 
 @subsection Parm_sec Command line parameters
 */
-#include <stdio.h>
 #include <CDE.h>
+
+#include <stdio.h>
 #include <string.h>
 #include <wchar.h>
 #include "..\..\includes\UniDump.h"
@@ -96,7 +97,7 @@ unsigned long long GetMem8(void* pAddr)
 unsigned WriteString(char* pszLineOfText)
 {
 
-    CDEMOFINE((MFNBAR(1) "%s", pszLineOfText));
+    CDETRACE((TRCBAR(1) "%s", pszLineOfText));
 
     return 0;
 };
@@ -217,7 +218,7 @@ int UniDump(UNIDUMPPARM ctrl, unsigned elmcount, unsigned long long startaddr, u
     unsigned u/*<unsigned index*/;
     unsigned nLineLength = ctrl.bit.nBytesPerLine ? 1 + ctrl.bit.nBytesPerLine : 16;
     unsigned nLineLengthHalf = nLineLength / 2;
-    unsigned char* pBuffer = malloc(128);
+      signed char* pBuffer = malloc(128);
     signed char* pTextLineBuf = malloc(18/*max. AddressSize*/ + 128/*max. characters*/ * 4 + 5/*Dash + szTwoSpaces*/);
     unsigned char* pb = (unsigned char*)&pBuffer[0];
     unsigned short* pw = (unsigned short*)&pBuffer[0];
@@ -310,111 +311,112 @@ int main(int argc, char** argv) {
     //getchar();
     //__debugbreak();// NOTE: to use breakpoints run DBGEMU.BAT
 
-	CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## CdePkg driver wcharhfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## CdePkg driver wcharhfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int wprintf(const wchar_t * format, ...)\"\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int swprintf(wchar_t * s, size_t n,const wchar_t * format, ...)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int wprintf(const wchar_t * format, ...)\"\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int swprintf(wchar_t * s, size_t n,const wchar_t * format, ...)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
+    fprintf(stdout, "hello world....4\n");
     wprintf(L"%S(%d): Welcome, to the wide, wide jungle... \n", __FILE__, __LINE__);
     wmemset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
     swprintf(&b[0], sizeof(b) / sizeof(b[0]), L"Welcome, to the wide, wide jungle... \n");
-    CDEMOFINE((MFNINF(1) "\n"));
+    CDETRACE((TRCINF(1) "\n"));
     UniDump(hexparms, sizeof(b), (unsigned long long)&b[0], (unsigned long long(*)(unsigned long long)) &GetMem8, WriteString);
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int vswprintf(wchar_t* s, size_t n, const wchar_t* format, va_list arg)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int vswprintf(wchar_t* s, size_t n, const wchar_t* format, va_list arg)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
     wmemset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
     vswprintf(&b[0], sizeof(b) / sizeof(b[0]), L"WELCOME, TO the wide, wide jungle...\n",NULL);
-    CDEMOFINE((MFNINF(1) "\n"));
+    CDETRACE((TRCINF(1) "\n"));
     UniDump(hexparms, sizeof(b), (unsigned long long) & b[0], (unsigned long long(*)(unsigned long long)) &GetMem8, WriteString);
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t *wcscpy(wchar_t * s1,const wchar_t * s2)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t *wcscpy(wchar_t * s1,const wchar_t * s2)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     for (i = 0; i < 1 * sizeof(TWSTRING); i += 1) {
         wmemset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
         p = wcscpy(&b[i], TWSTRING);
         UniDump(hexparms, sizeof(b), (unsigned long long) & b[0], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
-        CDEMOFINE((MFNERR(p != &b[i]) "wrong pointer\n"));
+        CDETRACE((TRCERR(p != &b[i]) "wrong pointer\n"));
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t *wcsncpy(wchar_t * s1,const wchar_t * s2)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t *wcsncpy(wchar_t * s1,const wchar_t * s2)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     for (i = 0; i < 1 * sizeof(TWSTRING); i += 1) {
         wmemset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
         p = wcsncpy(&b[i], TWSTRING,sizeof(TWSTRING) - 3 * sizeof(wchar_t));
         UniDump(hexparms, sizeof(b), (unsigned long long) & b[0], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
-        CDEMOFINE((MFNERR(p != &b[i]) "wrong pointer\n"));
+        CDETRACE((TRCERR(p != &b[i]) "wrong pointer\n"));
     }
 //    __debugbreak();
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t* wcscat(wchar_t* s1, const wchar_t* s2)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t* wcscat(wchar_t* s1, const wchar_t* s2)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     for (i = 0; i < 1 * sizeof(TWSTRING); i += 1) {
         wmemset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
         p = wcscpy(&b[i], TWSTRING);
         p = wcscat(&b[i], TWSTRING2);
         UniDump(hexparms, sizeof(b), (unsigned long long) & b[0], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
-        CDEMOFINE((MFNERR(p != &b[i]) "wrong pointer\n"));
+        CDETRACE((TRCERR(p != &b[i]) "wrong pointer\n"));
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t *wcsncat(wchar_t * s1,const wchar_t * s2, size_t n)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t *wcsncat(wchar_t * s1,const wchar_t * s2, size_t n)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     for (i = 0; i < 1 * sizeof(TWSTRING); i += 1) {
         wmemset(b, 'U' /*0x55*/, ELC(b)); // clear buffer
         p = wcscpy(&b[i], TWSTRING);
         p = wcsncat(&b[i], TWSTRING2, 2 * sizeof(wchar_t));
-        CDEMOFINE((MFNINF(1) "%S\n", b));
+        CDETRACE((TRCINF(1) "%S\n", b));
         UniDump(hexparms, sizeof(b), (unsigned long long) & b[0], (unsigned long long(*)(unsigned long long)) & GetMem8, WriteString);
-        CDEMOFINE((MFNERR(p != &b[i]) "wrong pointer\n"));
+        CDETRACE((TRCERR(p != &b[i]) "wrong pointer\n"));
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int wcscmp(const wchar_t *s1, const wchar_t *s2)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int wcscmp(const wchar_t *s1, const wchar_t *s2)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     for (i = 0; i < sizeof("UVWXYZ"); i++) {
         int r = 0;
         wchar_t string[] = { L"UVWXYZ" };
         wcscpy (string, L"UVWXYZ");
         string[i] = '\0';                   // shift the termination \0 through the string
         r = wcscmp(string, L"UVW");
-        CDEMOFINE((MFNINF(1) "Strings L\"UVW\" and L\"%S\" %s\n", string, r == 0 ? "MATCH" : "do not match"));
+        CDETRACE((TRCINF(1) "Strings L\"UVW\" and L\"%S\" %s\n", string, r == 0 ? "MATCH" : "do not match"));
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int wcsncmp(const wchar_t* s1, const wchar_t* s2, size_t n)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int wcsncmp(const wchar_t* s1, const wchar_t* s2, size_t n)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     for (i = 0; i < sizeof("UVWXYZ"); i++) {
         int r = 0;
         wchar_t string[] = { L"UVWxyz" };
         wcscpy (string, L"UVWxyz");
         r = wcsncmp(string, L"UVWXYZ", i);
-        CDEMOFINE((MFNINF(1) "First %d characters L\"UVWXYZ\" and L\"%S\" %s\n", i, string, r == 0 ? "MATCH" : "do not match"));
+        CDETRACE((TRCINF(1) "First %d characters L\"UVWXYZ\" and L\"%S\" %s\n", i, string, r == 0 ? "MATCH" : "do not match"));
     }
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### NOT yet implemented: \"size_t wcsxfrm(wchar_t * s1,const wchar_t * s2, size_t n)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### NOT yet implemented: \"size_t wcsxfrm(wchar_t * s1,const wchar_t * s2, size_t n)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
        
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t* wcschr(const wchar_t* s, wchar_t c)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t* wcschr(const wchar_t* s, wchar_t c)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     if (1) {
         static wchar_t pat[] = { 'a', '#', '$' };
         for (i = 0; i < ELC(pat); i++) {
@@ -422,16 +424,16 @@ int main(int argc, char** argv) {
             b[ELC(b) - 1] = L'\0';                // set termination '\0' at the end of the buffer
             b[i] = (wchar_t)pat[i];                         // place pattern in memory
             p = wcschr(b, pat[i]);
-            CDEMOFINE((MFNINF(1) "Character '%C' found in buffer at offset %d\n", pat[i], (wchar_t*)p - (wchar_t*)&b[0]));
+            CDETRACE((TRCINF(1) "Character '%C' found in buffer at offset %zd\n", pat[i], (wchar_t*)p - (wchar_t*)&b[0]));
         }
         //p = memchr(b, 'X', sizeof(b));              // search for 'X' that will not be found
-        //CDEMOFINE((MFNINF(p == NULL) "As expected character 'X' not found in buffer\n"));
-        //CDEMOFINE((MFNERR(p != NULL) "Character 'X' unexpectedly found\n"));
+        //CDETRACE((TRCINF(p == NULL) "As expected character 'X' not found in buffer\n"));
+        //CDETRACE((TRCERR(p != NULL) "Character 'X' unexpectedly found\n"));
     }
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"size_t wcscspn(const wchar_t* s1, const wchar_t* s2)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"size_t wcscspn(const wchar_t* s1, const wchar_t* s2)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     if (1) {
         static int pat[] = { 'c','G','9','#' };
         static wchar_t* set[] = { L"abc",L"DEFGH",L"123456789",L"ABC" };
@@ -441,34 +443,34 @@ int main(int argc, char** argv) {
             b[ELC(b) - 1] = '\0';                // set termination '\0' at the end of the buffer
             b[i] = (wchar_t)pat[i];                         // place pattern in memory
             ofs = wcscspn(b, set[i]);
-            CDEMOFINE((MFNINF(ofs != wcslen(b)) "Character '%c' is member of set \"%S\" and found in the buffer at offset %d\n", pat[i], set[i], ofs));
-            CDEMOFINE((MFNINF(ofs == wcslen(b)) "Character '%c' is NOT member of set \"%S\" \n", pat[i], set[i]));
+            CDETRACE((TRCINF(ofs != wcslen(b)) "Character '%c' is member of set \"%S\" and found in the buffer at offset %zd\n", pat[i], set[i], ofs));
+            CDETRACE((TRCINF(ofs == wcslen(b)) "Character '%c' is NOT member of set \"%S\" \n", pat[i], set[i]));
         }
     }
 
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t* wcspbrk(const wchar_t* s1, const wchar_t* s2)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t* wcspbrk(const wchar_t* s1, const wchar_t* s2)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     // sample taken from https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/strpbrk-wcspbrk-mbspbrk-mbspbrk-l?view=vs-2019#example
     if (1) {
         wchar_t string[100] = L"The 3 men and 2 boys ate 5 pigs";
         wchar_t* result = NULL;
         // Return pointer to first digit in "string".
-        CDEMOFINE((MFNINF(1) "1: %S\n", string));
+        CDETRACE((TRCINF(1) "1: %S\n", string));
         result = wcspbrk(string, L"0123456789");
-        CDEMOFINE((MFNINF(1) "2: %S\n", result++));
+        CDETRACE((TRCINF(1) "2: %S\n", result++));
         result = wcspbrk(result, L"0123456789");
-        CDEMOFINE((MFNINF(1) "3: %S\n", result++));
+        CDETRACE((TRCINF(1) "3: %S\n", result++));
         result = wcspbrk(result, L"0123456789");
-        CDEMOFINE((MFNINF(1) "4: %S\n", result));
+        CDETRACE((TRCINF(1) "4: %S\n", result));
     }
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t* wcsrchr(const wchar_t* s, wchar_t c)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t* wcsrchr(const wchar_t* s, wchar_t c)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     // sample taken from https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/strchr-wcschr-mbschr-mbschr-l?view=vs-2019#example
     if (1) {
         wchar_t  ch = 'r';
@@ -480,34 +482,34 @@ int main(int argc, char** argv) {
         wchar_t* pdest;
         int result;
 
-        CDEMOFINE((MFNINF(1) "String to be searched:\n"));
-        CDEMOFINE((MFNINF(1) "%S\n", string));
-        CDEMOFINE((MFNINF(1) "%S\n", fmt1));
-        CDEMOFINE((MFNINF(1) "%S\n", fmt2));
-        CDEMOFINE((MFNINF(1) "Search char:   %c\n", ch));
+        CDETRACE((TRCINF(1) "String to be searched:\n"));
+        CDETRACE((TRCINF(1) "%S\n", string));
+        CDETRACE((TRCINF(1) "%S\n", fmt1));
+        CDETRACE((TRCINF(1) "%S\n", fmt2));
+        CDETRACE((TRCINF(1) "Search char:   %c\n", ch));
 
         // Search forward.
         pdest = wcschr(string, ch);
         result = (int)(pdest - string + 1);
         if (pdest != NULL)
-            CDEMOFINE((MFNINF(1) "Result:   first %c found at position %d\n", ch, result));
+            CDETRACE((TRCINF(1) "Result:   first %c found at position %d\n", ch, result));
         else
-            CDEMOFINE((MFNINF(1) "Result:   %c not found\n", ch));
+            CDETRACE((TRCINF(1) "Result:   %c not found\n", ch));
 
         // Search backward.
         pdest = wcsrchr(string, ch);
         result = (int)(pdest - string + 1);
         if (pdest != NULL)
-            CDEMOFINE((MFNINF(1) "Result:   last %c found at position %d\n", ch, result));
+            CDETRACE((TRCINF(1) "Result:   last %c found at position %d\n", ch, result));
         else
-            CDEMOFINE((MFNINF(1) "Result:\t%c not found\n", ch));
+            CDETRACE((TRCINF(1) "Result:\t%c not found\n", ch));
     }
 
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"size_t wcsspn(const wchar_t* s1, const wchar_t* s2)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"size_t wcsspn(const wchar_t* s1, const wchar_t* s2)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     // sample taken from https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/strspn-wcsspn-mbsspn-mbsspn-l?view=vs-2019#example
     if (1) {
         wchar_t string[] = L"cabbage";
@@ -518,14 +520,14 @@ int main(int argc, char** argv) {
         // it finds the first non-abc letter.
         //
         result = wcsspn(string, L"abc");
-        CDEMOFINE((MFNINF(1) "The portion of '%S' containing only a, b, or c " "is %d bytes long\n", string, result));
+        CDETRACE((TRCINF(1) "The portion of '%S' containing only a, b, or c " "is %zd bytes long\n", string, result));
     }
 
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t* wcsstr(const wchar_t* s1, const wchar_t* s2)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t* wcsstr(const wchar_t* s1, const wchar_t* s2)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     // sample taken from https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/strstr-wcsstr-mbsstr-mbsstr-l?view=vs-2019#example
     if (1) {
         wchar_t str[]    = L"lazy";
@@ -536,25 +538,25 @@ int main(int argc, char** argv) {
         wchar_t* pdest;
         int result;
 
-        CDEMOFINE((MFNINF(1) "String to be searched:\n"));
-        CDEMOFINE((MFNINF(1) "%S\n", string));
-        CDEMOFINE((MFNINF(1) "%S\n", fmt1));
-        CDEMOFINE((MFNINF(1) "%S\n", fmt2));
-        CDEMOFINE((MFNINF(1) "Search string:   %S\n", str));
+        CDETRACE((TRCINF(1) "String to be searched:\n"));
+        CDETRACE((TRCINF(1) "%S\n", string));
+        CDETRACE((TRCINF(1) "%S\n", fmt1));
+        CDETRACE((TRCINF(1) "%S\n", fmt2));
+        CDETRACE((TRCINF(1) "Search string:   %S\n", str));
 
         // Search forward.
         pdest = wcsstr(string, str);
         result = (int)(pdest - string + 1);
         if (pdest != NULL)
-            CDEMOFINE((MFNINF(1) "Result:   first \"%S\" found at position %d\n", str, result));
+            CDETRACE((TRCINF(1) "Result:   first \"%S\" found at position %d\n", str, result));
         else
-            CDEMOFINE((MFNINF(1) "Result:   %S not found\n", str));
+            CDETRACE((TRCINF(1) "Result:   %S not found\n", str));
     }
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t* wcstok(wchar_t* strToken, const wchar_t* strDelimit)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t* wcstok(wchar_t* strToken, const wchar_t* strDelimit)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     // sample taken from https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/strtok-strtok-l-wcstok-wcstok-l-mbstok-mbstok-l?view=vs-2019#example
     if (1) {
         wchar_t string[] = L"A string?of ,,tokens!and some  more tokens\n,!?";
@@ -562,8 +564,8 @@ int main(int argc, char** argv) {
         wchar_t* context;
         wchar_t* token;
 
-        CDEMOFINE((MFNINF(1) "String: %S", string));
-        CDEMOFINE((MFNINF(1) "Tokens:\n"));
+        CDETRACE((TRCINF(1) "String: %S", string));
+        CDETRACE((TRCINF(1) "Tokens:\n"));
 
         // Establish string and get the first token:
         //__debugbreak();
@@ -572,7 +574,7 @@ int main(int argc, char** argv) {
         while (token != NULL)
         {
             // While there are tokens in "string"
-            CDEMOFINE((MFNINF(1) " \"%S\"\n", token));
+            CDETRACE((TRCINF(1) " \"%S\"\n", token));
 
             // Get next token:
             token = wcstok(NULL, seps, &context); // C4996
@@ -580,68 +582,68 @@ int main(int argc, char** argv) {
     }
      
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"size_t wcslen(const wchar_t* s)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"size_t wcslen(const wchar_t* s)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     if (1) {
         static wchar_t string[] = L"The quick brown dog jumps over the lzy fox";
 
         size_t len;
 
         len = wcslen(string);
-        CDEMOFINE((MFNINF(1) "What is the length of the wcString \"%S\"???\n", string));
-        CDEMOFINE((MFNINF(1) "%d!!! Answer to the Ultimate Question of Life, the Universe, and Everything...\n", len));
+        CDETRACE((TRCINF(1) "What is the length of the wcString \"%S\"???\n", string));
+        CDETRACE((TRCINF(1) "%zd!!! Answer to the Ultimate Question of Life, the Universe, and Everything...\n", len));
 
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t *wmemchr(const wchar_t *s, wchar_t c, size_t n)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t *wmemchr(const wchar_t *s, wchar_t c, size_t n)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     if (1) {
         static wchar_t pat[] = { 'a','#','\0','$' };
         for (i = 0; i < ELC(pat) ; i++) {
             wmemset(b, 'U' /*0x55*/, ELC(b));
             b[i] = (wchar_t)pat[i];                         //place pattern in memory
             p = wmemchr(b, pat[i], ELC(b));
-            CDEMOFINE((MFNINF(1) "Character '%c' found in buffer at offset %d\n", pat[i], (wchar_t*)p - (wchar_t*)&b[0]));
+            CDETRACE((TRCINF(1) "Character '%c' found in buffer at offset %zd\n", pat[i], (wchar_t*)p - (wchar_t*)&b[0]));
         }
         p = wmemchr(b, 'X', ELC(b));              // search for 'X' that will not be found
-        CDEMOFINE((MFNINF(p == NULL) "As expected character 'X' not found in buffer\n"));
-        CDEMOFINE((MFNERR(p != NULL) "Character 'X' unexpectedly found\n"));
+        CDETRACE((TRCINF(p == NULL) "As expected character 'X' not found in buffer\n"));
+        CDETRACE((TRCERR(p != NULL) "Character 'X' unexpectedly found\n"));
     }
     
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"int wmemcmp(const wchar_t *s1, const wchar_t *s2,size_t n)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"int wmemcmp(const wchar_t *s1, const wchar_t *s2,size_t n)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "NOTE: A termination '\\0', 0x00 can probably not be displayed in a terminal program\n"));
     for (i = 0; i < sizeof("ABCDEF"); i++) {
         int r = 0;
         r = wmemcmp(L"ABCDEF", L"ABCdef", i);
-        CDEMOFINE((MFNINF(1) "first %d charachters of \"ABCDEF\" and \"ABCdef\"%s match\n", i, r == 0 ? "" : " DO NOT"));
+        CDETRACE((TRCINF(1) "first %d charachters of \"ABCDEF\" and \"ABCdef\"%s match\n", i, r == 0 ? "" : " DO NOT"));
     }
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t *wmemcpy(wchar_t * s1,const wchar_t * s2, size_t n)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t *wmemcpy(wchar_t * s1,const wchar_t * s2, size_t n)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     for (i = 0; i < 1 * sizeof(TWSTRING); i += 1) {
         wmemset(b, 'U' /*0x55*/, ELC(b));
         p = wmemcpy(&b[i], TWSTRING, ELC(TWSTRING) - 1/*skip termination \0 of the string literal*/);
-        CDEMOFINE((MFNINF(1) "%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7], b[8], b[9], b[10], b[11], b[12], b[13], b[14], b[15], b[16], b[17], b[18], b[19], b[20], b[21], b[22], b[23], b[24], b[25], b[26], b[27], b[28], b[29], b[30], b[31], b[32], b[33], b[34], b[35], b[36], b[37], b[38], b[39], b[40], b[41], b[42], b[43], b[44], b[45], b[46], b[47]));
+        CDETRACE((TRCINF(1) "%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7], b[8], b[9], b[10], b[11], b[12], b[13], b[14], b[15], b[16], b[17], b[18], b[19], b[20], b[21], b[22], b[23], b[24], b[25], b[26], b[27], b[28], b[29], b[30], b[31], b[32], b[33], b[34], b[35], b[36], b[37], b[38], b[39], b[40], b[41], b[42], b[43], b[44], b[45], b[46], b[47]));
         UniDump(hexparms, sizeof(b), (unsigned long long)& b[0], (unsigned long long(*)(unsigned long long))& GetMem8, WriteString);
-        CDEMOFINE((MFNERR(p != &b[i]) "wrong pointer\n"));
+        CDETRACE((TRCERR(p != &b[i]) "wrong pointer\n"));
     }
  
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "### Demonstrating \"wchar_t *wmemmove(wchar_t *s1, const wchar_t *s2,size_t n)\"\n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "### Demonstrating \"wchar_t *wmemmove(wchar_t *s1, const wchar_t *s2,size_t n)\"\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
     for (i = 0; i < ELC(b) - ELC(TWSTRING) + 2; i += 1) {
         wmemset(b, 'U' /*0x55*/, ELC(b));
         wmemcpy(&b[i], TWSTRING, ELC(TWSTRING) - 1/*skip termination \0 of the string literal*/);
         p = memmove(&b[ELC(b) / 2], &b[i], ELC(TWSTRING) - 1);
-        CDEMOFINE((MFNINF(1) "%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7], b[8], b[9], b[10], b[11], b[12], b[13], b[14], b[15], b[16], b[17], b[18], b[19], b[20], b[21], b[22], b[23], b[24], b[25], b[26], b[27], b[28], b[29], b[30], b[31], b[32], b[33], b[34], b[35], b[36], b[37], b[38], b[39], b[40], b[41], b[42], b[43], b[44], b[45], b[46], b[47]));
+        CDETRACE((TRCINF(1) "%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c\n", b[0], b[1], b[2], b[3], b[4], b[5], b[6], b[7], b[8], b[9], b[10], b[11], b[12], b[13], b[14], b[15], b[16], b[17], b[18], b[19], b[20], b[21], b[22], b[23], b[24], b[25], b[26], b[27], b[28], b[29], b[30], b[31], b[32], b[33], b[34], b[35], b[36], b[37], b[38], b[39], b[40], b[41], b[42], b[43], b[44], b[45], b[46], b[47]));
         UniDump(hexparms, sizeof(b), (unsigned long long)& b[0], (unsigned long long(*)(unsigned long long))& GetMem8, WriteString);
-        CDEMOFINE((MFNERR(p != &b[ELC(b) / 2]) "wrong pointer\n"));
+        CDETRACE((TRCERR(p != &b[ELC(b) / 2]) "wrong pointer\n"));
     }
     //__debugbreak();
     return 0;

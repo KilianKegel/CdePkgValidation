@@ -44,10 +44,10 @@
 
 @subsection Parm_sec Command line parameters
 */
+#include <CDE.h>
 
 #include <stdio.h>
 #include <string.h>
-#include <CDE.h>
 #undef NULL
 #include <PiPei.h>
 #include <Pi\PiStatusCode.h>
@@ -62,15 +62,15 @@ int main(int argc, char** argv) {
 
     //__debugbreak(); NOTE: to use breakpoints run DBGEMU.BAT
     
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## systeminterfacePEI demo %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## systeminterfacePEI demo %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
-    CDEMOFINE((MFNINF/*M-odule F-ile li-N-e FATAL (including termination)*/(1) "--> %d, %s argv[0] -> %s\n", 0 == strncmp(argv[0], "unknownCde", strlen("unknownCde")), argv[0]));
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCINF/*M-odule F-ile li-N-e FATAL (including termination)*/(1) "--> %d, %s argv[0]\n", 0 == strncmp(argv[0], "unknownCde", strlen("unknownCde")), argv[0]));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "Demonstration of how to get PeiServices and FileHandle for PEI drivers.\n"));
+    CDETRACE((TRCINF(1) "Demonstration of how to get PeiServices and FileHandle for PEI drivers.\n"));
 
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "PeiServices: %p\n", PeiServices));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "FileHandle:  %p\n", FileHandle));
+    CDETRACE((TRCINF(1) "PeiServices: %p\n", PeiServices));
+    CDETRACE((TRCINF(1) "FileHandle:  %p\n", FileHandle));
 }

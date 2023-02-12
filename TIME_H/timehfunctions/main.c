@@ -49,12 +49,12 @@
 
 @subsection Parm_sec Command line parameters
 */
+#include <CDE.h>
+
 #include  <stdio.h>
 #include  <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include <CDE.h>
-
 //#undef NULL
 //#include <uefi.h>
 //#include <PiPei.h>
@@ -86,41 +86,41 @@ int main(int argc, char** argv) {
 
     //getchar();
 
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "########################## CdePkg driver timehfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE((MFNINF(1) "########################## NOTE: UTC only support, no timezones, no daylight saving.\n"));
-    CDEMOFINE((MFNINF(1) "########################## NOTE: In Emulation mode time syncronisation and system time/date is faulty due to lack of HW access \n"));
-    CDEMOFINE((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE((MFNINF(1) "Demonstrating  TIME.H functions difftime(), mktime(), time(), asctime(), ctime(), gmtime(), localtime() and strftime()\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## CdePkg driver timehfunctions %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "########################## NOTE: UTC only support, no timezones, no daylight saving.\n"));
+    CDETRACE((TRCINF(1) "########################## NOTE: In Emulation mode time syncronisation and system time/date is faulty due to lack of HW access \n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "Demonstrating  TIME.H functions difftime(), mktime(), time(), asctime(), ctime(), gmtime(), localtime() and strftime()\n"));
 
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
     t = mktime(&time1);                  // converting "broken-down" to "calendartime"
     pszIDayAscTime = asctime(&time1);
     pszIDayCTime = ctime(&t);
-    CDEMOFINE((MFNINF(1) "Some facts about the 200. anniversary of the Indepandance day:\n"));
-    CDEMOFINE((MFNINF(1) "1. by asctime()         : %s", pszIDayAscTime));
-    CDEMOFINE((MFNINF(1) "2. by ctime()           : %s", pszIDayCTime));
+    CDETRACE((TRCINF(1) "Some facts about the 200. anniversary of the Indepandance day:\n"));
+    CDETRACE((TRCINF(1) "1. by asctime()         : %s", pszIDayAscTime));
+    CDETRACE((TRCINF(1) "2. by ctime()           : %s", pszIDayCTime));
 
     pTime2 = gmtime(&t);
     pszIDayAscTime = asctime(pTime2);
-    CDEMOFINE((MFNINF(1) "3. by gmtime()          : %s", pszIDayAscTime));
+    CDETRACE((TRCINF(1) "3. by gmtime()          : %s", pszIDayAscTime));
 
     pTime3 = localtime(&t);
     pszIDayAscTime = asctime(pTime3);
-    CDEMOFINE((MFNINF(1) "4. by localtime()       : %s", pszIDayAscTime));
+    CDETRACE((TRCINF(1) "4. by localtime()       : %s", pszIDayAscTime));
 
     strftime(strftimebuf, sizeof(strftimebuf), "%A, the %d %B %Y\n", pTime3);
 
-    CDEMOFINE((MFNINF(1) "5. by strftime()        : %s", &strftimebuf[0]));
+    CDETRACE((TRCINF(1) "5. by strftime()        : %s", &strftimebuf[0]));
 
     t1 = time(NULL);
     pszIDayCTime = ctime(&t1);
-    CDEMOFINE((MFNINF(1) "Reported today by time(): %s", pszIDayCTime));
+    CDETRACE((TRCINF(1) "Reported today by time(): %s", pszIDayCTime));
 
     memset(&time1, 0, sizeof(time1));
     t = mktime(&time1);
-    CDEMOFINE((MFNINF(1) "invalid time 01/01/1970 00:00:00 minus one second ->  t = %0llX\n", t));
+    CDETRACE((TRCINF(1) "invalid time 01/01/1970 00:00:00 minus one second ->  t = %0llX\n", t));
     //
     // difftime
     //
@@ -130,7 +130,7 @@ int main(int argc, char** argv) {
 
         timediff = difftime(3, 1);
 
-        CDEMOFINE((MFNINF(1) "timediff in hex format(since floating point format is not yet supported in Torito C Library): %llX\n", *pHexDiff));
+        CDETRACE((TRCINF(1) "timediff in hex format(since floating point format is not yet supported in Torito C Library): %llX\n", *pHexDiff));
     }
     //
     // determine CPU speed
@@ -138,7 +138,7 @@ int main(int argc, char** argv) {
     if (1) {
         clock_t clk;
 
-        CDEMOFINE((MFNINF(1) "Determining CPU speed...\n"));
+        CDETRACE((TRCINF(1) "Determining CPU speed...\n"));
 
         clk = CLOCKS_PER_SEC + clock();
         TSCStart = __rdtsc();
@@ -146,7 +146,7 @@ int main(int argc, char** argv) {
             ;
         TSCEnd = __rdtsc();
         TSCPerSec = TSCEnd - TSCStart;
-        CDEMOFINE((MFNINF(1) "CPU @ %lldHz\n", TSCPerSec));
+        CDETRACE((TRCINF(1) "CPU @ %lldHz\n", TSCPerSec));
     }
 
 	return 0;

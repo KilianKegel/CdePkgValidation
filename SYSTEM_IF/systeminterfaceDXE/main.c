@@ -44,15 +44,13 @@
 
 @subsection Parm_sec Command line parameters
 */
+#include <CDE.h>
 
 #include <stdio.h>
 #include <string.h>
-#include <CDE.h>
 #undef NULL
 #include <uefi.h>
 
-extern EFI_HANDLE        gImageHandle;
-extern EFI_SYSTEM_TABLE* gST;
 
 int main(int argc, char** argv) {
     EFI_SYSTEM_TABLE* SystemTable   = (void*)(argv[-1]); //SystemTable is passed in argv[-1]
@@ -60,16 +58,16 @@ int main(int argc, char** argv) {
     
     //__debugbreak(); NOTE: to use breakpoints run DBGEMU.BAT
 
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "########################## systeminterfaceDXE demo %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
+    CDETRACE((TRCINF(1) "########################## systeminterfaceDXE demo %s %s\n", CDE_CONFIGURATION_STRING, CDE_PLATFORM_STRING));
+    CDETRACE((TRCINF(1) "##################################################################\n"));
 
-    CDEMOFINE((MFNFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
+    CDETRACE((TRCFAT/*M-odule F-ile li-N-e FATAL (including termination)*/(0 == strncmp(argv[0], "unknownCdeDriver", strlen("unknownCdeDriver"))) "\nA command line is not injected into NVRAM (\"LoadOption.efi\") - driver terminated\n\n"));
 
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "Demonstration of how to get SytemTable and ImageHandle for DXE drivers.\n"));
+    CDETRACE((TRCINF(1) "Demonstration of how to get SytemTable and ImageHandle for DXE drivers.\n"));
 
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "SystemTable: %p\n", SystemTable));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "gST:         %p\n", gST));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "ImageHandle: %p\n", ImageHandle));
-    CDEMOFINE/*MOduleFIleliNE*/((MFNINF(1) "gImageHandle:%p\n", gImageHandle));
+    CDETRACE((TRCINF(1) "SystemTable: %p\n", SystemTable));
+    //CDETRACE((TRCINF(1) "gST:         %p\n", gST));
+    CDETRACE((TRCINF(1) "ImageHandle: %p\n", ImageHandle));
+    //CDETRACE((TRCINF(1) "gImageHandle:%p\n", gImageHandle));
 }
