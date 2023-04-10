@@ -105,7 +105,7 @@ int main(int argc, char** argv) {
 
     CDETRACE((TRCINF(1) "%s\n", pBuffer));
     if (1/*ISfunctions*/) {
-        static struct {
+        struct {
             int (*isfunc)(int);
             char* szIsName;
         }isfunc[] = {
@@ -151,7 +151,7 @@ int main(int argc, char** argv) {
     }
 
     if (1/*TOfunctions*/) {
-        static struct {
+        struct {
             int (*tofunc)(int);
             char* szToName;
         }tofunc[] = {

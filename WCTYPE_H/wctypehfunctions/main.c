@@ -109,7 +109,7 @@ int main(int argc, char** argv) {
 
     CDETRACE((TRCINF(1) "%s\n", pBuffer));
     if (1/*ISfunctions*/) {
-        static struct {
+        struct {
             int (*isfunc)(win_t);
             char* szIsName;
         }isfunc[] = {
@@ -155,7 +155,7 @@ int main(int argc, char** argv) {
     }
 
     if (1/*TOfunctions*/) {
-        static struct {
+        struct {
             wint_t (*tofunc)(win_t);
             char* szToName;
         }tofunc[] = {
@@ -232,7 +232,7 @@ int main(int argc, char** argv) {
     if (1/*WCTRANS and TOWCTRANS function*/) {
         wint_t t, wc;
         //int c;
-        static char* property_table[] = { { "toupper" },{"tolower" },{ "towupper" },{ "towlower" },{ "INVALID" } };
+        char* property_table[] = { { "toupper" },{"tolower" },{ "towupper" },{ "towlower" },{ "INVALID" } };
 
         for (i = 0, t = 0; i < sizeof(property_table) / sizeof(property_table[0]); i++) {
 
