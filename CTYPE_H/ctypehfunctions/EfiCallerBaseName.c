@@ -1,7 +1,7 @@
 /*!
 @copyright
 
-    Copyright (c) 2020, MinnowWare. All rights reserved.
+    Copyright (c) 2020-2024, MinnowWare. All rights reserved.
     This program and the accompanying materials are licensed and made
     available under the terms and conditions of the BSD License
     which accompanies this distribution.  The full text of the license
